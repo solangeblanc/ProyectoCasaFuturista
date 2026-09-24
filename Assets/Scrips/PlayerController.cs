@@ -27,15 +27,14 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Transform de la cámara que se utilizará para visualizar el juego.")]
     [SerializeField] private Transform _camara;
 
-    [Tooltip("Sensibilidad de la cámara al mover el mouse o el control de visión.")][SerializeField] private float _sensibilidad = 2f;
+    [Tooltip("Sensibilidad de la cámara al mover el mouse o el control de visión.")]
+    [SerializeField] private float _sensibilidad = 2f;
 
     [Tooltip("Ángulo máximo de rotación vertical que puede realizar la cámara."), SerializeField, Range(0, 120)] private float _ClampCam = 80f;
 
-
-
     [Tooltip("Rotación vertical actual de la cámara.")] private float rotacionX;
-
     [Tooltip("Utilizada para calcular la gravedad y el salto.")] private float velocidadVertical;
+
 
     [Header("INPUTS")]
     [Tooltip("Entrada de movimiento recibida desde el Input System.")]
@@ -44,11 +43,16 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Entrada utilizada para controlar la rotación de la cámara.")]
     private Vector2 mouse;
 
+
+    [Header("Cambio de Color de Piso")]
+    [SerializeField] private Material[] materialesPiso;
+    private int indiceMaterial = 0;
+
+
     private void Awake()
     {
         _CHC = GetComponent<CharacterController>();
     }
-   
 
     private void Update()
     {
@@ -57,36 +61,62 @@ public class PlayerController : MonoBehaviour
         MoverCamara();
     }
 
+
+    // =========================
+    // CAMBIO DE COLOR DE PISO
+    // =========================
+
+    public void OnCambiarPiso(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            Ray ray = new Ray(_camara.position, _camara.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Renderer pisoRenderer = hit.collider.GetComponent<Renderer>();
+                if (pisoRenderer != null)
+                {
+                    // Asignamos el material
+                    pisoRenderer.material = materialesPiso[indiceMaterial];
+
+                    // Forzamos el Tiling (escala) y Offset en los shaders modernos de Unity
+                    pisoRenderer.material.SetTextureScale("_BaseMap", new Vector2(5f, 5f));
+                    pisoRenderer.material.SetTextureScale("_MainTex", new Vector2(5f, 5f));
+
+                    indiceMaterial = (indiceMaterial + 1) % materialesPiso.Length;
+                }
+            }
+        }
+    }
+
+
     // =========================
     // MOVIMIENTO DEL JUGADOR
     // =========================
 
     private void MoverJugador()
     {
-        // Usamos la variable 'movimiento' que alimentan los mensajes del Input System
         Vector3 direccion = transform.right * movimiento.x + transform.forward * movimiento.y;
-
         Vector3 movimientoFinal = direccion * _vel;
-
         movimientoFinal.y = velocidadVertical;
 
         _CHC.Move(movimientoFinal * Time.deltaTime);
     }
 
+
     #region Gravedad
 
     private void AplicarGravedad()
     {
-        //Si esta en el piso no le agrego gavedad pero si se cae o esta en altura si
         if (_CHC.isGrounded)
         {
-            // Evita que el jugador quede "flotando" sobre el suelo
             if (velocidadVertical < 0)
             {
                 velocidadVertical = -2f;
             }
 
-            // Salto opcional
             if (_fuerzaSalto > 0)
             {
                 velocidadVertical = _fuerzaSalto;
@@ -94,45 +124,39 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Aplicamos gravedad
             velocidadVertical += _gravedad * Time.deltaTime;
-
-            // Limitar velocidad de caída para que vaya de 10 al maximo que querramos
             velocidadVertical = Mathf.Max(velocidadVertical, _velocidadMaximaCaida);
         }
     }
     #endregion
+
+
     // =========================
     // CÁMARA
     // =========================
 
     private void MoverCamara()
     {
-        // Rotación horizontal del jugador
         transform.Rotate(Vector3.up * mouse.x * _sensibilidad);
 
-        // Rotación vertical de la cámara
         rotacionX -= mouse.y * _sensibilidad;
-
-        // Clampeams la camara en un valor para que no rote de mas y se rompa
         rotacionX = Mathf.Clamp(rotacionX, -_ClampCam, _ClampCam);
 
         _camara.localRotation = Quaternion.Euler(rotacionX, 0, 0);
     }
 
+
     // =========================
-    // INPUT SYSTEM Esta zona es donde vamos a llamar todos los inputs del input manager para que cuando apretemos las teclas
+    // INPUT SYSTEM
     // =========================
 
     public void OnMove(InputValue value)
     {
-        //WASD
         movimiento = value.Get<Vector2>();
     }
 
     public void OnLook(InputValue value)
     {
-        //Mouse
         mouse = value.Get<Vector2>();
     }
 }
