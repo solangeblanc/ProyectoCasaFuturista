@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Estilos%20_%20bienvenida.uss?fileID=7433441132597879392&amp;guid=dfd1b59c4170e494bae2e269822e99b7&amp;type=3#Estilos _ bienvenida"/>
+    <ui:VisualElement name="Contenedor_global" class="contenedor" style="flex-grow: 1; width: 1926px;">
+        <ui:Button text="" name="BotonIniciar" style="top: 32.5%; left: 38%; right: 40%; width: 25%; height: 16%; -unity-text-align: middle-center; background-color: rgb(92, 166, 236); background-image: url(&quot;project://database/Assets/UI/boton%20iniciar.png?fileID=2800000&amp;guid=c687303dbd4f7354f9aca0b2ae2bb286&amp;type=3#boton iniciar&quot;); border-left-width: 4px; border-left-color: rgb(92, 166, 238); border-right-color: rgb(92, 166, 238); border-top-color: rgb(92, 166, 238); border-bottom-color: rgb(92, 166, 238); border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px;"/>
+    </ui:VisualElement>
+</ui:UXML>
