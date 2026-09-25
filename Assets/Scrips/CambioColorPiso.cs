@@ -8,23 +8,23 @@ public class CambioColorPiso : MonoBehaviour
     private int indiceMaterial = 0;
 
     public void OnCambiarPiso(InputValue value)
-    {
+   {
         if (value.isPressed)
         {
             Ray ray = new Ray(camara.transform.position, camara.transform.forward);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+           if (Physics.Raycast(ray, out hit))
             {
-                Renderer pisoRenderer = hit.collider.GetComponent<Renderer>();
-                if (pisoRenderer != null)
+               Renderer pisoRenderer = hit.collider.GetComponent<Renderer>();
+               if (pisoRenderer != null)
                 {
-                    pisoRenderer.material = materialesPiso[indiceMaterial];
+                  pisoRenderer.material = materialesPiso[indiceMaterial];
                     indiceMaterial = (indiceMaterial + 1) % materialesPiso.Length;
-                }
-            }
-        }
-    }
+               }
+           }
+       }
+   }
 }
 
 
