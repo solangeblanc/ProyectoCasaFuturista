@@ -14,5 +14,12 @@ public class MenuPrincipal : MonoBehaviour
         {
             SceneManager.LoadScene("1_Simulador");
         };
+
+        Button botonSalir = root.Q<Button>("BotonSalir");
+
+        botonSalir.clicked += () =>
+        {
+            Application.Quit();
+        };
     }
 }

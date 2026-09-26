@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController _CHC;
 
     [Tooltip("Velocidad de movimiento del jugador.")]
-    [SerializeField] private float _vel = 5f;
+    [SerializeField] private float _vel = 7f;
 
 
     [Header("Gravedad")]
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _camara;
 
     [Tooltip("Sensibilidad de la cámara al mover el mouse o el control de visión.")]
-    [SerializeField] private float _sensibilidad = 2f;
+    [SerializeField] private float _sensibilidad = 1f;
 
     [Tooltip("Ángulo máximo de rotación vertical que puede realizar la cámara."), SerializeField, Range(0, 120)] private float _ClampCam = 80f;
 
