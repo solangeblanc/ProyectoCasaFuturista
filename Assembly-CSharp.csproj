@@ -52,9 +52,11 @@
     <Compile Include="Assets\Scrips\CambioColorPiso.cs" />
     <Compile Include="Assets\Scrips\Interfaz_Bienvenida.cs" />
     <Compile Include="Assets\Scrips\CambioVentana.cs" />
+    <Compile Include="Assets\Scrips\ControlParedesPorMaterial.cs" />
     <Compile Include="Assets\Scrips\CambioParedes.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scrips\Teletransporte.cs" />
+    <Compile Include="Assets\Scrips\ControlLuces.cs" />
     <Compile Include="Assets\Scrips\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>

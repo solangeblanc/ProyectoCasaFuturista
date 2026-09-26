@@ -7,7 +7,7 @@ public class Teletransporte : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Verificamos si el objeto que entra es el jugador (asegúrate de que tu jugador tenga la etiqueta "Player")
+        // Verificamos si el objeto que entra es el jugador (tiene que tener la etiqueta "Player")
         if (other.CompareTag("Player"))
         {
             // Desactivamos el CharacterController o el movimiento momentáneamente para evitar bugs de física al moverlo
