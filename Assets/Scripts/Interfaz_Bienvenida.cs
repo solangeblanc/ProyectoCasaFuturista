@@ -12,6 +12,7 @@ public class MenuPrincipal : MonoBehaviour
 
         BotonIniciar.clicked += () =>
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene("1_Simulador");
         };
 

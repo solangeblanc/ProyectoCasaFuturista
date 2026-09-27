@@ -4,6 +4,17 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    private void Start()
+    {
+        
+        var playerInput = GetComponent<PlayerInput>();
+        playerInput.actions.Disable();
+        playerInput.actions.FindActionMap("Player").Enable();
+
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     [Header("Movimiento")]
     [Tooltip("Character Controller")]
     private CharacterController _CHC;
@@ -55,6 +66,16 @@ public class PlayerController : MonoBehaviour
         AplicarGravedad();
         MoverCamara();
     }
+    public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        movimiento = context.ReadValue<Vector2>();
+    }
+
+    public void OnLook(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        mouse = context.ReadValue<Vector2>();
+    }
+   
 
     // =========================
     // MOVIMIENTO DEL JUGADOR
