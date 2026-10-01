@@ -6,7 +6,9 @@ public class SelectorDePared : MonoBehaviour
     [Header("Referencias UI")]
     public GameObject cartelAviso;      // El cartelito de "Pulsa C"
     public GameObject panelColores;     // El PanelCambioColorPared
-    public MeshRenderer paredRenderer;  // El MeshRenderer de la pared
+
+    [Header("Estructura de Paredes")]
+    public Transform casaModulos;       // Arrastra aquí el objeto "casa Modulos"
 
     [Header("Materiales Disponibles")]
     public Material[] materialesPared;  // Tus 5 materiales de pared
@@ -62,21 +64,34 @@ public class SelectorDePared : MonoBehaviour
         panelAbierto = true;
         if (cartelAviso != null) cartelAviso.SetActive(false);
         if (panelColores != null) panelColores.SetActive(true);
-        Time.timeScale = 0f; // Pausa el juego opcionalmente para elegir cómodamente
+
+        // Mostrar y liberar el cursor para que puedas hacer clic sin problemas
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        Time.timeScale = 0f; // Pausa el juego
     }
 
     public void SeleccionarMaterial(int indice)
     {
-        if (paredRenderer != null && indice >= 0 && indice < materialesPared.Length)
+        if (indice >= 0 && indice < materialesPared.Length && casaModulos != null)
         {
-            paredRenderer.material = materialesPared[indice];
+            MeshRenderer[] todasLasParedes = casaModulos.GetComponentsInChildren<MeshRenderer>();
+
+            foreach (MeshRenderer pared in todasLasParedes)
+            {
+                if (pared.gameObject.name.ToLower().Contains("pared"))
+                {
+                    pared.material = materialesPared[indice];
+                }
+            }
         }
     }
 
     public void ConfirmarSeleccion()
     {
         CerrarPanel();
-        // Destruye este cartel para que no vuelva a aparecer nunca más
+        // Destruye este cartel para que no vuelva a aparecer
         Destroy(gameObject);
     }
 
@@ -84,6 +99,7 @@ public class SelectorDePared : MonoBehaviour
     {
         panelAbierto = false;
         if (panelColores != null) panelColores.SetActive(false);
+
         Time.timeScale = 1f; // Reanuda el juego
     }
 }

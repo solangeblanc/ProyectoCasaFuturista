@@ -50,13 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\3_Scripts\PlayerController.cs" />
+    <Compile Include="Assets\3_Scripts\selectorDePared.cs" />
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
     <Compile Include="Assets\3_Scripts\CambioVentana.cs" />
     <Compile Include="Assets\3_Scripts\VidrioViveroCanva.cs" />
     <Compile Include="Assets\3_Scripts\ControlLuces.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\3_Scripts\selectorPare.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz_Bienvenida.cs" />
     <Compile Include="Assets\3_Scripts\SelectorDeColor.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
@@ -657,6 +657,14 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@9c2353fb96f6\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
