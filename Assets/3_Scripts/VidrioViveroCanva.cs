@@ -1,26 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PuertaCorrediza : MonoBehaviour
+public class VidrioVivero : MonoBehaviour
 {
     [Header("Tecla")]
-    [Tooltip("Tecla que abre/cierra la puerta.")]
-    [SerializeField] private Key teclaAccion = Key.Space;
+    [SerializeField] private Key teclaAccion = Key.E;
 
-    [Header("Movimiento de la puerta")]
-    [Tooltip("Hacia dónde y cuánto se desliza la puerta, en espacio LOCAL.")]
+    [Header("Movimiento del vidrio")]
+    [Tooltip("Hacia donde se corre el vidrio")]
     [SerializeField] private Vector3 desplazamiento = new Vector3(2f, 0f, 0f);
-
-    [Tooltip("Velocidad de apertura/cierre (unidades por segundo).")]
     [SerializeField] private float velocidad = 2f;
 
-    [Header("Cartel / Canvas")]
-    [Tooltip("Arrastra acá tu Canvas que dice 'Con la barra espaciadora podes abrir la puerta'")]
+    [Header("Canvas")]
+    [Tooltip("Arrastra aca tu Canvas del vivero")]
     [SerializeField] private GameObject canvasCartel;
 
     private Vector3 posicionCerrada;
     private Vector3 posicionAbierta;
-    private bool abierta = false;
+    private bool abierto = false;
     private bool jugadorCerca = false;
 
     private void Start()
@@ -28,23 +25,20 @@ public class PuertaCorrediza : MonoBehaviour
         posicionCerrada = transform.localPosition;
         posicionAbierta = posicionCerrada + desplazamiento;
 
-        // Que el cartel empiece apagado
         if (canvasCartel != null)
             canvasCartel.SetActive(false);
     }
 
     private void Update()
     {
-        // Solo deja abrir si el jugador está dentro del trigger
         if (jugadorCerca && Keyboard.current != null && Keyboard.current[teclaAccion].wasPressedThisFrame)
         {
-            abierta = !abierta;
-            // Si la abre, ocultamos el cartel
-            if (canvasCartel != null && abierta)
+            abierto = !abierto;
+            if (canvasCartel != null)
                 canvasCartel.SetActive(false);
         }
 
-        Vector3 destino = abierta ? posicionAbierta : posicionCerrada;
+        Vector3 destino = abierto ? posicionAbierta : posicionCerrada;
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, destino, velocidad * Time.deltaTime);
     }
 
@@ -53,8 +47,7 @@ public class PuertaCorrediza : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorCerca = true;
-            // Solo muestra el cartel si la puerta está cerrada
-            if (!abierta && canvasCartel != null)
+            if (!abierto && canvasCartel != null)
                 canvasCartel.SetActive(true);
         }
     }
