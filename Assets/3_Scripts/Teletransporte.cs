@@ -4,6 +4,9 @@ public class Teletransporte : MonoBehaviour
 {
     public Transform destino;
 
+    [Header("Cartel de la escalera")]
+    [SerializeField] private GameObject cartelEscalera; // <--- 1. Añadimos esta variable
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,6 +21,12 @@ public class Teletransporte : MonoBehaviour
 
             if (controller != null)
                 controller.enabled = true;
+
+            // <--- 2. APAGAMOS EL CARTEL AQUÍ A LA FUERZA
+            if (cartelEscalera != null)
+            {
+                cartelEscalera.SetActive(false);
+            }
         }
     }
 }

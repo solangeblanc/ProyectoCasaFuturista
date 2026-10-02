@@ -54,11 +54,9 @@
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
     <Compile Include="Assets\3_Scripts\CambioVentana.cs" />
     <Compile Include="Assets\3_Scripts\VidrioViveroCanva.cs" />
-    <Compile Include="Assets\3_Scripts\ControlLuces.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz_Bienvenida.cs" />
-    <Compile Include="Assets\3_Scripts\SelectorDeColor.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
     <Compile Include="Assets\3_Scripts\SistemaRiego.cs" />
   </ItemGroup>

@@ -106,18 +106,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "IntercambiarLuz",
+                    "name": "CambiarColorPared",
                     "type": "Button",
-                    "id": "19382d1c-0aeb-43fd-a87d-39ea426fa8c5",
+                    "id": "e94e1af9-8178-48ac-a3cf-d5c83b19fdc9",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CambiarColorPared",
+                    "name": "OnIntercambiarLuz",
                     "type": "Button",
-                    "id": "e94e1af9-8178-48ac-a3cf-d5c83b19fdc9",
+                    "id": "cfa0c7bf-22aa-40a5-b7b7-1aa986c6f0a5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -534,23 +534,23 @@
                 },
                 {
                     "name": "",
-                    "id": "4501f908-7e93-4629-bb64-e1d70caba76f",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "IntercambiarLuz",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "93c79919-7849-4f04-96f2-573cf999aea3",
                     "path": "<Keyboard>/#(P)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "CambiarColorPared",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c629cb0-caf8-4314-895b-d8f50f6c2977",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnIntercambiarLuz",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
