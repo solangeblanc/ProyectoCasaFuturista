@@ -7,11 +7,11 @@ public class SelectorDePared : MonoBehaviour
     public GameObject cartelAviso;      // El cartelito de "Pulsa C"
     public GameObject panelColores;     // El PanelCambioColorPared
 
-    [Header("Estructura de Paredes")]
-    public Transform casaModulos;       // Arrastra aquí el objeto "casa Modulos"
+    [Header("Estructura")]
+    public Transform casaModulos;       // Arrastra aquí "casa Modulos"
 
     [Header("Materiales Disponibles")]
-    public Material[] materialesPared;  // Tus 5 materiales de pared
+    public Material[] materialesPared;  // Tus materiales de pared
 
     private bool jugadorEnZona = false;
     private bool panelAbierto = false;
@@ -24,7 +24,6 @@ public class SelectorDePared : MonoBehaviour
 
     void Update()
     {
-        // Detectar si el jugador está en la zona y presiona la tecla C
         if (jugadorEnZona && !panelAbierto && Input.GetKeyDown(KeyCode.C))
         {
             AbrirPanel();
@@ -65,10 +64,8 @@ public class SelectorDePared : MonoBehaviour
         if (cartelAviso != null) cartelAviso.SetActive(false);
         if (panelColores != null) panelColores.SetActive(true);
 
-        // Mostrar y liberar el cursor para que puedas hacer clic sin problemas
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
         Time.timeScale = 0f; // Pausa el juego
     }
 
@@ -76,13 +73,14 @@ public class SelectorDePared : MonoBehaviour
     {
         if (indice >= 0 && indice < materialesPared.Length && casaModulos != null)
         {
-            MeshRenderer[] todasLasParedes = casaModulos.GetComponentsInChildren<MeshRenderer>();
+            MeshRenderer[] todosLosMesh = casaModulos.GetComponentsInChildren<MeshRenderer>();
 
-            foreach (MeshRenderer pared in todasLasParedes)
+            foreach (MeshRenderer m in todosLosMesh)
             {
-                if (pared.gameObject.name.ToLower().Contains("pared"))
+                string nombre = m.gameObject.name.ToLower();
+                if (nombre.Contains("pared"))
                 {
-                    pared.material = materialesPared[indice];
+                    m.material = materialesPared[indice];
                 }
             }
         }
@@ -91,8 +89,8 @@ public class SelectorDePared : MonoBehaviour
     public void ConfirmarSeleccion()
     {
         CerrarPanel();
-        // Destruye este cartel para que no vuelva a aparecer
-        //Destroy(gameObject);
+        // Comentamos el Destroy para que la zona de activación no se borre nunca:
+        // Destroy(gameObject); 
     }
 
     void CerrarPanel()
@@ -100,13 +98,12 @@ public class SelectorDePared : MonoBehaviour
         panelAbierto = false;
         if (panelColores != null) panelColores.SetActive(false);
 
-        Time.timeScale = 1f; // Reanuda el juego
-
-        // --- PEQUEÑO CAMBIO CLAVE ---
-        // Si el jugador sigue pisando la zona al cerrar el panel, volvemos a mostrar el cartel de inmediato:
+        // Si el jugador sigue pisando la zona al cerrar el panel, el cartel vuelve a aparecer:
         if (jugadorEnZona && cartelAviso != null)
         {
             cartelAviso.SetActive(true);
         }
+
+        Time.timeScale = 1f; // Reanuda el juego
     }
 }

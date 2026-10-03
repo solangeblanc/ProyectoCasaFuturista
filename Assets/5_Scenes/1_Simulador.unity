@@ -6655,7 +6655,7 @@ Transform:
   m_GameObject: {fileID: 224781028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -728.6, y: -216.9, z: 287.35}
+  m_LocalPosition: {x: -728.6, y: -247.6, z: 287.35}
   m_LocalScale: {x: 21.160748, y: 20.549353, z: 1.4796}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24792,7 +24792,12 @@ MonoBehaviour:
   cartelAviso: {fileID: 670427279}
   panelColores: {fileID: 2055726685}
   casaModulos: {fileID: 1164219937}
-  materialesPared: []
+  materialesPared:
+  - {fileID: 2100000, guid: c5ef30143a7a3ce4d9f42dde11f35615, type: 2}
+  - {fileID: 2100000, guid: 981953f972b5b3f4d98d8011176226a6, type: 2}
+  - {fileID: -5412891868347863643, guid: a760177fbc3b0834fac7f9fe9cdc3db5, type: 3}
+  - {fileID: 2100000, guid: 607560e2b973a4c49b8627caa349fac7, type: 2}
+  - {fileID: 2100000, guid: 94cdd37ba371d6d42bc90486df284b54, type: 2}
 --- !u!65 &2012629975
 BoxCollider:
   m_ObjectHideFlags: 0
