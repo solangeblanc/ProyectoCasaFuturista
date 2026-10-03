@@ -89,13 +89,21 @@ public class SelectorDePiso : MonoBehaviour
     public void ConfirmarSeleccion()
     {
         CerrarPanel();
-        Destroy(gameObject); // Borra la zona de activación
+        // Comentamos el Destroy para que la zona de activación no se borre nunca:
+        // Destroy(gameObject); 
     }
 
     void CerrarPanel()
     {
         panelAbierto = false;
         if (panelPiso != null) panelPiso.SetActive(false);
+
+        // Si el jugador sigue pisando la zona al cerrar el panel, el cartel vuelve a aparecer:
+        if (jugadorEnZona && cartelAviso != null)
+        {
+            cartelAviso.SetActive(true);
+        }
+
         Time.timeScale = 1f; // Reanuda el juego
     }
 }

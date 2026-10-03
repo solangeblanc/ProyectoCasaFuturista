@@ -92,7 +92,7 @@ public class SelectorDePared : MonoBehaviour
     {
         CerrarPanel();
         // Destruye este cartel para que no vuelva a aparecer
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     void CerrarPanel()
@@ -101,5 +101,12 @@ public class SelectorDePared : MonoBehaviour
         if (panelColores != null) panelColores.SetActive(false);
 
         Time.timeScale = 1f; // Reanuda el juego
+
+        // --- PEQUEÑO CAMBIO CLAVE ---
+        // Si el jugador sigue pisando la zona al cerrar el panel, volvemos a mostrar el cartel de inmediato:
+        if (jugadorEnZona && cartelAviso != null)
+        {
+            cartelAviso.SetActive(true);
+        }
     }
 }
