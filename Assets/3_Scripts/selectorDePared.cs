@@ -4,14 +4,18 @@ using TMPro;
 public class SelectorDePared : MonoBehaviour
 {
     [Header("Referencias UI")]
-    public GameObject cartelAviso;      // El cartelito de "Pulsa C"
-    public GameObject panelColores;     // El PanelCambioColorPared
+    public GameObject cartelAviso; // El cartelito de "Pulsa C"
+    public GameObject panelColores; // El PanelCambioColorPared
 
     [Header("Estructura")]
-    public Transform casaModulos;       // Arrastra aquí "casa Modulos"
+    public Transform casaModulos; // Arrastra aquí "casa Modulos"
 
     [Header("Materiales Disponibles")]
-    public Material[] materialesPared;  // Tus materiales de pared
+    public Material[] materialesPared; // Tus materiales de pared
+
+    [Header("Player")]
+    public MonoBehaviour playerMove; // Arrastra tu Character Controller / First Person Controller
+    public MonoBehaviour mouseLook; // Arrastra tu MouseLook / Camera Look
 
     private bool jugadorEnZona = false;
     private bool panelAbierto = false;
@@ -67,6 +71,10 @@ public class SelectorDePared : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f; // Pausa el juego
+
+        // Congela movimiento y camara
+        if (playerMove != null) playerMove.enabled = false;
+        if (mouseLook != null) mouseLook.enabled = false;
     }
 
     public void SeleccionarMaterial(int indice)
@@ -89,8 +97,6 @@ public class SelectorDePared : MonoBehaviour
     public void ConfirmarSeleccion()
     {
         CerrarPanel();
-        // Comentamos el Destroy para que la zona de activación no se borre nunca:
-        // Destroy(gameObject); 
     }
 
     void CerrarPanel()
@@ -98,12 +104,18 @@ public class SelectorDePared : MonoBehaviour
         panelAbierto = false;
         if (panelColores != null) panelColores.SetActive(false);
 
-        // Si el jugador sigue pisando la zona al cerrar el panel, el cartel vuelve a aparecer:
         if (jugadorEnZona && cartelAviso != null)
         {
             cartelAviso.SetActive(true);
         }
 
         Time.timeScale = 1f; // Reanuda el juego
+
+        // Reactiva movimiento y camara
+        if (playerMove != null) playerMove.enabled = true;
+        if (mouseLook != null) mouseLook.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

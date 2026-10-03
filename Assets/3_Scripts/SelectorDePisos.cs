@@ -4,14 +4,18 @@ using TMPro;
 public class SelectorDePiso : MonoBehaviour
 {
     [Header("Referencias UI")]
-    public GameObject cartelAviso;      // El cartelito de "Pulsa M"
-    public GameObject panelPiso;        // El Panel de pisos del Canvas
+    public GameObject cartelAviso;
+    public GameObject panelPiso;
 
     [Header("Estructura")]
-    public Transform casaModulos;       // Arrastra aquí "casa Modulos"
+    public Transform casaModulos;
 
     [Header("Materiales Disponibles")]
-    public Material[] materialesPiso;   // Tus materiales de piso
+    public Material[] materialesPiso;
+
+    [Header("Player")]
+    public MonoBehaviour playerMove;
+    public MonoBehaviour mouseLook;
 
     private bool jugadorEnZona = false;
     private bool panelAbierto = false;
@@ -66,7 +70,10 @@ public class SelectorDePiso : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0f; // Pausa el juego
+        Time.timeScale = 0f;
+
+        if (playerMove != null) playerMove.enabled = false;
+        if (mouseLook != null) mouseLook.enabled = false;
     }
 
     public void SeleccionarMaterialPiso(int indice)
@@ -89,8 +96,6 @@ public class SelectorDePiso : MonoBehaviour
     public void ConfirmarSeleccion()
     {
         CerrarPanel();
-        // Comentamos el Destroy para que la zona de activación no se borre nunca:
-        // Destroy(gameObject); 
     }
 
     void CerrarPanel()
@@ -98,12 +103,17 @@ public class SelectorDePiso : MonoBehaviour
         panelAbierto = false;
         if (panelPiso != null) panelPiso.SetActive(false);
 
-        // Si el jugador sigue pisando la zona al cerrar el panel, el cartel vuelve a aparecer:
         if (jugadorEnZona && cartelAviso != null)
         {
             cartelAviso.SetActive(true);
         }
 
-        Time.timeScale = 1f; // Reanuda el juego
+        Time.timeScale = 1f;
+
+        if (playerMove != null) playerMove.enabled = true;
+        if (mouseLook != null) mouseLook.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
