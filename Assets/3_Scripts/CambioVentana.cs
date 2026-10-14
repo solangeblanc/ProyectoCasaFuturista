@@ -12,6 +12,9 @@ public class CambioVentanas : MonoBehaviour
 
     public void OnCambiarVentana(InputValue value)
     {
+        // Solo se puede cambiar el vidrio mientras se está jugando
+        if (!GameManager.Instance.EstaJugando) return;
+
         if (value.isPressed && materialesVidrio.Length > 0)
         {
             Ray ray = new Ray(_camara.position, _camara.forward);

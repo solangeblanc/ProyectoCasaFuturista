@@ -17,7 +17,7 @@ public class Teletransporte : MonoBehaviour
 
     private void Update()
     {
-        if (jugadorCerca && Keyboard.current != null && Keyboard.current[teclaTeletransporte].wasPressedThisFrame)
+        if (jugadorCerca && GameManager.Instance.EstaJugando && Keyboard.current != null && Keyboard.current[teclaTeletransporte].wasPressedThisFrame)
         {
             Teletransportar();
         }
