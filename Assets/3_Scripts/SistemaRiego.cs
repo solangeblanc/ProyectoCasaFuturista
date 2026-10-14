@@ -26,8 +26,7 @@ public class SistemaRiego : MonoBehaviour
 
     private void Update()
     {
-        // Solo si está dentro del collider
-        if (jugadorCerca && Keyboard.current != null && Keyboard.current[teclaRiego].wasPressedThisFrame)
+        if (jugadorCerca && GameManager.Instance.EstaJugando && Keyboard.current != null && Keyboard.current[teclaRiego].wasPressedThisFrame)
         {
             if (agua.isPlaying)
                 agua.Stop();

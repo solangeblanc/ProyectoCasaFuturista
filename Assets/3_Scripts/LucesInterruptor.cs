@@ -10,7 +10,7 @@ public class InterruptorLuz : MonoBehaviour
 
     void Update()
     {
-        if (jugadorCerca && Input.GetKeyDown(tecla)) // si esta apagada se prende 
+        if (jugadorCerca && GameManager.Instance.EstaJugando && Input.GetKeyDown(tecla))
         {
             foreach (GameObject luz in luces)
             {

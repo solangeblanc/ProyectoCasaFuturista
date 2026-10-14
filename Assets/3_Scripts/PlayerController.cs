@@ -6,15 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     private void Start()
     {
-        
         var playerInput = GetComponent<PlayerInput>();
         playerInput.actions.Disable();
         playerInput.actions.FindActionMap("Player").Enable();
-
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
+
     [Header("Movimiento")]
     [Tooltip("Character Controller")]
     private CharacterController _CHC;

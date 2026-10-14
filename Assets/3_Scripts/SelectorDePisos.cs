@@ -13,10 +13,6 @@ public class SelectorDePiso : MonoBehaviour
     [Header("Materiales Disponibles")]
     public Material[] materialesPiso;
 
-    [Header("Player")]
-    public MonoBehaviour playerMove;
-    public MonoBehaviour mouseLook;
-
     private bool jugadorEnZona = false;
     private bool panelAbierto = false;
 
@@ -28,66 +24,63 @@ public class SelectorDePiso : MonoBehaviour
 
     void Update()
     {
-        if (jugadorEnZona && !panelAbierto && Input.GetKeyDown(KeyCode.Space))//si el jug esta en la zona y el panel esta cerrado  y aprieta M
+        // Solo se puede abrir si el juego está en estado "Jugando"
+        if (jugadorEnZona && !panelAbierto && GameManager.Instance.EstaJugando && Input.GetKeyDown(KeyCode.Space))
         {
-            AbrirPanel();//se abre el panel de eleccion de colores
+            AbrirPanel();
         }
     }
 
-    private void OnTriggerEnter(Collider other)//se activa cuando algo entra en la zona marcado como on trigger
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))//si tiene la etiqueta player
+        if (other.CompareTag("Player"))
         {
-            jugadorEnZona = true;//esta el jug en la zona
-            if (cartelAviso != null && !panelAbierto)//el cartel de aviso esta mostrandose
+            jugadorEnZona = true;
+            if (cartelAviso != null && !panelAbierto)
             {
-                cartelAviso.SetActive(true);//muestra el panel para seleccionar
+                cartelAviso.SetActive(true);
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)//on trigger se activa cuando el jug sale del area
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             jugadorEnZona = false;
             if (cartelAviso != null)
             {
-                cartelAviso.SetActive(false);//oculta el cartel
+                cartelAviso.SetActive(false);
             }
             if (panelAbierto)
             {
-                CerrarPanel();//si esta abierto lo cierra
+                CerrarPanel();
             }
         }
     }
 
     void AbrirPanel()
     {
-        panelAbierto = true;//cambia el estado a abierto
-        if (cartelAviso != null) cartelAviso.SetActive(false);//oculta el cartel de aviso
+        panelAbierto = true;
+        if (cartelAviso != null) cartelAviso.SetActive(false);
         if (panelPiso != null) panelPiso.SetActive(true);
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;//muestra el cursor en pantalla asi el jug puede seleccionar los botones
-        Time.timeScale = 0f;//pausa el tiempo de juego
-
-        if (playerMove != null) playerMove.enabled = false;//desactiva el movimiento del jugad para que se quede quieto
-        if (mouseLook != null) mouseLook.enabled = false;
+        // El GameManager congela el juego, muestra el cursor y bloquea al jugador
+        GameManager.Instance.CambiarEstado(EstadoJuego.PanelAbierto);
     }
 
     public void SeleccionarMaterialPiso(int indice)
     {
-        if (indice >= 0 && indice < materialesPiso.Length && casaModulos != null)//recibe un indice de material para que se ponga el material
+        if (indice >= 0 && indice < materialesPiso.Length && casaModulos != null)
         {
             MeshRenderer[] todosLosMesh = casaModulos.GetComponentsInChildren<MeshRenderer>();
 
-            foreach (MeshRenderer m in todosLosMesh)//revisa, recorre todos los indices
+            foreach (MeshRenderer m in todosLosMesh)
             {
                 string nombre = m.gameObject.name.ToLower();
-                if (nombre.Contains("piso") || nombre.Contains("suelo"))//busca piso o suelo
+                if (nombre.Contains("piso") || nombre.Contains("suelo"))
                 {
-                    m.material = materialesPiso[indice];//asigna el material que se elige
+                    m.material = materialesPiso[indice];
                 }
             }
         }
@@ -95,26 +88,20 @@ public class SelectorDePiso : MonoBehaviour
 
     public void ConfirmarSeleccion()
     {
-        CerrarPanel();//si se confirma con el boton seleccionar ciera el panel de opciones
+        CerrarPanel();
     }
-
 
     void CerrarPanel()
     {
         panelAbierto = false;
-        if (panelPiso != null) panelPiso.SetActive(false);//si panel esta cerrado y el panelde seleccion esta abierto lo cierra
+        if (panelPiso != null) panelPiso.SetActive(false);
 
-        if (jugadorEnZona && cartelAviso != null)//el jug esta en la zona y el cartel esta apagado
+        if (jugadorEnZona && cartelAviso != null)
         {
-            cartelAviso.SetActive(true);//lo activa
+            cartelAviso.SetActive(true);
         }
 
-        Time.timeScale = 1f;//reanuda el tiempo de juego
-
-        if (playerMove != null) playerMove.enabled = true;
-        if (mouseLook != null) mouseLook.enabled = true;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // El GameManager reanuda el juego, oculta el cursor y libera al jugador
+        GameManager.Instance.CambiarEstado(EstadoJuego.Jugando);
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SelectorDeVentanas : MonoBehaviour
 {
-    [Header("Referencias UI")] // header para poner las opciones en la interfaz 
+    [Header("Referencias UI")]
     public GameObject cartelAviso;
     public GameObject panelVentanas;
 
@@ -11,10 +11,6 @@ public class SelectorDeVentanas : MonoBehaviour
 
     [Header("Materiales Disponibles")]
     public Material[] materialesVentanas; // 5 materiales para ventanas
-
-    [Header("Player")]
-    public MonoBehaviour playerMove;
-    public MonoBehaviour mouseLook;
 
     private bool jugadorEnZona = false;
     private bool panelAbierto = false;
@@ -27,7 +23,7 @@ public class SelectorDeVentanas : MonoBehaviour
 
     void Update()
     {
-        if (jugadorEnZona && !panelAbierto && Input.GetKeyDown(KeyCode.Space))
+        if (jugadorEnZona && !panelAbierto && GameManager.Instance.EstaJugando && Input.GetKeyDown(KeyCode.Space))
         {
             AbrirPanel();
         }
@@ -52,16 +48,13 @@ public class SelectorDeVentanas : MonoBehaviour
         }
     }
 
-    void AbrirPanel() //funcion para congelar el juego
+    void AbrirPanel()
     {
         panelAbierto = true;
         if (cartelAviso != null) cartelAviso.SetActive(false);
         if (panelVentanas != null) panelVentanas.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0f;
-        if (playerMove != null) playerMove.enabled = false;
-        if (mouseLook != null) mouseLook.enabled = false;
+
+        GameManager.Instance.CambiarEstado(EstadoJuego.PanelAbierto);
     }
 
     public void SeleccionarMaterialVentana(int indice)
@@ -93,10 +86,7 @@ public class SelectorDeVentanas : MonoBehaviour
         panelAbierto = false;
         if (panelVentanas != null) panelVentanas.SetActive(false);
         if (jugadorEnZona && cartelAviso != null) cartelAviso.SetActive(true);
-        Time.timeScale = 1f;
-        if (playerMove != null) playerMove.enabled = true;
-        if (mouseLook != null) mouseLook.enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; // reanuda el juego desbloquea la pantalla
+
+        GameManager.Instance.CambiarEstado(EstadoJuego.Jugando);
     }
 }

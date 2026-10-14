@@ -60,10 +60,10 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz_Bienvenida.cs" />
     <Compile Include="Assets\3_Scripts\LucesInterruptor.cs" />
-    <Compile Include="Assets\3_Scripts\IndicadorGuiador.cs" />
     <Compile Include="Assets\3_Scripts\interfazcreditos.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
     <Compile Include="Assets\3_Scripts\SistemaRiego.cs" />
+    <Compile Include="Assets\3_Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMPro.cginc" />
