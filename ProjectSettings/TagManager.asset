@@ -8,6 +8,7 @@ TagManager:
   - Luz
   - Paredes
   - Interruptor
+  - colisiones
   layers:
   - Default
   - TransparentFX

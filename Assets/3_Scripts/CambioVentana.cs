@@ -3,48 +3,74 @@ using UnityEngine.InputSystem;
 
 public class CambioVentanas : MonoBehaviour
 {
+    [Header("Tecla")]
+    [SerializeField] private Key teclaCambio = Key.Space;
+
     [Header("Lista de materiales/tonos para el vidrio")]
     public Material[] materialesVidrio;
     private int indiceMaterial = 0;
 
-    [Header("Cámara del Jugador")]
+    [Header("Rayo")]
+    [Tooltip("Cámara del jugador. Si queda vacío usa la cámara con tag MainCamera.")]
     public Transform _camara;
+    [SerializeField] private float distanciaMaxima = 4f;
+    [SerializeField] private LayerMask capas = ~0;
 
-    public void OnCambiarVentana(InputValue value)
+    private void Start()
     {
-        // Solo se puede cambiar el vidrio mientras se está jugando
-        if (!GameManager.Instance.EstaJugando) return;
+        if (_camara == null && Camera.main != null)
+            _camara = Camera.main.transform;
+    }
 
-        if (value.isPressed && materialesVidrio.Length > 0)
+    private void Update()
+    {
+        if (GameManager.Instance == null || !GameManager.Instance.EstaJugando || _camara == null)
+            return;
+
+        if (Keyboard.current != null && Keyboard.current[teclaCambio].wasPressedThisFrame)
+            IntentarCambiarVidrio();
+    }
+
+    private void IntentarCambiarVidrio()
+    {
+        Debug.Log("Tecla apretada, lanzando rayo...");
+
+        if (materialesVidrio == null || materialesVidrio.Length == 0)
         {
-            Ray ray = new Ray(_camara.position, _camara.forward);
-            RaycastHit hit;
+            Debug.Log("No hay materiales en la lista");
+            return;
+        }
 
-            if (Physics.Raycast(ray, out hit))
+        RaycastHit[] hits = Physics.RaycastAll(_camara.position, _camara.forward,
+                                               distanciaMaxima, capas,
+                                               QueryTriggerInteraction.Ignore);
+        System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        Debug.Log("Colliders en el camino: " + hits.Length);
+
+        foreach (RaycastHit hit in hits)
+        {
+            Debug.Log("Rayo pasó por: " + hit.collider.name + " | tag: " + hit.collider.tag);
+
+            if (!hit.collider.CompareTag("Ventana")) continue;
+
+            Renderer ventanaRenderer = hit.collider.GetComponentInChildren<Renderer>();
+            if (ventanaRenderer == null)
             {
-                if (hit.collider.CompareTag("Ventana"))
-                {
-                    Renderer ventanaRenderer = hit.collider.GetComponent<Renderer>();
-                    if (ventanaRenderer != null)
-                    {
-                        // Obtenemos el array completo de materiales que tiene el objeto
-                        Material[] mats = ventanaRenderer.materials;
-
-                        // Verificamos que al menos tenga 2 materiales (para asegurarnos de modificar el vidrio en el Element 1)
-                        if (mats.Length > 1)
-                        {
-                            // Cambiamos únicamente el Element 1 (el vidrio)
-                            mats[1] = materialesVidrio[indiceMaterial];
-
-                            // Reasignamos el array modificado al renderer
-                            ventanaRenderer.materials = mats;
-
-                            // Pasamos al siguiente tono de la lista
-                            indiceMaterial = (indiceMaterial + 1) % materialesVidrio.Length;
-                        }
-                    }
-                }
+                Debug.Log("La ventana no tiene Renderer");
+                continue;
             }
+
+            Material[] mats = ventanaRenderer.materials;
+            Debug.Log("Materiales de la ventana: " + mats.Length);
+
+            if (mats.Length > 1)
+            {
+                mats[1] = materialesVidrio[indiceMaterial];
+                ventanaRenderer.materials = mats;
+                indiceMaterial = (indiceMaterial + 1) % materialesVidrio.Length;
+            }
+            return;
         }
     }
 }
