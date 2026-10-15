@@ -2,71 +2,26 @@ using UnityEngine;
 
 public class SelectorDeVentanas : MonoBehaviour
 {
-    [Header("Referencias UI")]
-    public GameObject cartelAviso;
-    public GameObject panelVentanas;
+    [Header("Arrastrá acá la casa")]
+    public Transform casaModulos;
 
-    [Header("Estructura")]
-    public Transform casaModulos; // Arrastra el objeto padre donde están tus ventanas
+    [Header("Arrastrá acá los materiales de ventana")]
+    public Material[] materialesVentanas;
 
-    [Header("Materiales Disponibles")]
-    public Material[] materialesVentanas; // 5 materiales para ventanas
-
-    private bool jugadorEnZona = false;
-    private bool panelAbierto = false;
-
-    void Start()
+    public void CambiarVentana(int indice)
     {
-        if (cartelAviso != null) cartelAviso.SetActive(false);
-        if (panelVentanas != null) panelVentanas.SetActive(false);
-    }
-
-    void Update()
-    {
-        if (jugadorEnZona && !panelAbierto && GameManager.Instance.EstaJugando && Input.GetKeyDown(KeyCode.Space))
+        if (casaModulos == null)
         {
-            AbrirPanel();
+            Debug.LogError("FALTA casaModulos en SelectorDeVentanas");
+            return;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            jugadorEnZona = true;
-            if (cartelAviso != null && !panelAbierto) cartelAviso.SetActive(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            jugadorEnZona = false;
-            if (cartelAviso != null) cartelAviso.SetActive(false);
-            if (panelAbierto) CerrarPanel();
-        }
-    }
-
-    void AbrirPanel()
-    {
-        panelAbierto = true;
-        if (cartelAviso != null) cartelAviso.SetActive(false);
-        if (panelVentanas != null) panelVentanas.SetActive(true);
-
-        GameManager.Instance.CambiarEstado(EstadoJuego.PanelAbierto);
-    }
-
-    public void SeleccionarMaterialVentana(int indice)
-    {
-        if (casaModulos == null) { Debug.LogError("FALTA casaModulos en SelectorDeVentanas"); return; }
-        if (indice < 0 || indice >= materialesVentanas.Length) { Debug.LogError("Indice fuera de rango"); return; }
-        if (materialesVentanas[indice] == null) { Debug.LogError("Material " + indice + " esta vacio"); return; }
+        if (indice < 0 || indice >= materialesVentanas.Length) return;
+        if (materialesVentanas[indice] == null) return;
 
         MeshRenderer[] todos = casaModulos.GetComponentsInChildren<MeshRenderer>(true);
         int cambiados = 0;
 
-        foreach (MeshRenderer m in todos) // busca todos los mesh de la casa hasta encontrar los que tengan nombre ventana
+        foreach (MeshRenderer m in todos)
         {
             string nombre = m.gameObject.name.ToLower();
             if (nombre.Contains("ventana") || nombre.Contains("vidrio") || nombre.Contains("marco") || nombre.Contains("window") || nombre.Contains("cristal"))
@@ -76,17 +31,11 @@ public class SelectorDeVentanas : MonoBehaviour
             }
         }
         Debug.Log("Ventanas cambiadas: " + cambiados);
-        if (cambiados == 0) Debug.LogWarning("No encontro ventanas. Renombra tus ventanas para que contengan 'ventana' en el nombre");
     }
 
-    public void ConfirmarSeleccion() { CerrarPanel(); }
-
-    void CerrarPanel()
+    // Para que te sigan andando tus botones viejos
+    public void SeleccionarMaterialVentana(int indice)
     {
-        panelAbierto = false;
-        if (panelVentanas != null) panelVentanas.SetActive(false);
-        if (jugadorEnZona && cartelAviso != null) cartelAviso.SetActive(true);
-
-        GameManager.Instance.CambiarEstado(EstadoJuego.Jugando);
+        CambiarVentana(indice);
     }
 }

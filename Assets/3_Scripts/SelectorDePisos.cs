@@ -1,107 +1,39 @@
 using UnityEngine;
-using TMPro;
 
 public class SelectorDePiso : MonoBehaviour
 {
-    [Header("Referencias UI")]
-    public GameObject cartelAviso;
-    public GameObject panelPiso;
-
-    [Header("Estructura")]
+    [Header("Arrastrá acá la casa")]
     public Transform casaModulos;
 
-    [Header("Materiales Disponibles")]
+    [Header("Arrastrá acá los materiales de piso")]
     public Material[] materialesPiso;
 
-    private bool jugadorEnZona = false;
-    private bool panelAbierto = false;
-
-    void Start()
+    // Este es el que van a llamar los botones
+    public void CambiarPiso(int indice)
     {
-        if (cartelAviso != null) cartelAviso.SetActive(false);
-        if (panelPiso != null) panelPiso.SetActive(false);
-    }
-
-    void Update()
-    {
-        // Solo se puede abrir si el juego está en estado "Jugando"
-        if (jugadorEnZona && !panelAbierto && GameManager.Instance.EstaJugando && Input.GetKeyDown(KeyCode.Space))
+        if (casaModulos == null)
         {
-            AbrirPanel();
+            Debug.LogError("Casa Modulos sin asignar en SelectorDePiso");
+            return;
         }
-    }
+        if (indice < 0 || indice >= materialesPiso.Length) return;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        MeshRenderer[] todosLosMesh = casaModulos.GetComponentsInChildren<MeshRenderer>(true);
+
+        foreach (MeshRenderer m in todosLosMesh)
         {
-            jugadorEnZona = true;
-            if (cartelAviso != null && !panelAbierto)
+            string nombre = m.gameObject.name.ToLower();
+            if (nombre.Contains("piso") || nombre.Contains("suelo"))
             {
-                cartelAviso.SetActive(true);
+                m.material = materialesPiso[indice];
             }
         }
+        Debug.Log("Piso cambiado a: " + materialesPiso[indice].name);
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            jugadorEnZona = false;
-            if (cartelAviso != null)
-            {
-                cartelAviso.SetActive(false);
-            }
-            if (panelAbierto)
-            {
-                CerrarPanel();
-            }
-        }
-    }
-
-    void AbrirPanel()
-    {
-        panelAbierto = true;
-        if (cartelAviso != null) cartelAviso.SetActive(false);
-        if (panelPiso != null) panelPiso.SetActive(true);
-
-        // El GameManager congela el juego, muestra el cursor y bloquea al jugador
-        GameManager.Instance.CambiarEstado(EstadoJuego.PanelAbierto);
-    }
-
+    // Para que te ande con tu nombre viejo también
     public void SeleccionarMaterialPiso(int indice)
     {
-        if (indice >= 0 && indice < materialesPiso.Length && casaModulos != null)
-        {
-            MeshRenderer[] todosLosMesh = casaModulos.GetComponentsInChildren<MeshRenderer>();
-
-            foreach (MeshRenderer m in todosLosMesh)
-            {
-                string nombre = m.gameObject.name.ToLower();
-                if (nombre.Contains("piso") || nombre.Contains("suelo"))
-                {
-                    m.material = materialesPiso[indice];
-                }
-            }
-        }
-    }
-
-    public void ConfirmarSeleccion()
-    {
-        CerrarPanel();
-    }
-
-    void CerrarPanel()
-    {
-        panelAbierto = false;
-        if (panelPiso != null) panelPiso.SetActive(false);
-
-        if (jugadorEnZona && cartelAviso != null)
-        {
-            cartelAviso.SetActive(true);
-        }
-
-        // El GameManager reanuda el juego, oculta el cursor y libera al jugador
-        GameManager.Instance.CambiarEstado(EstadoJuego.Jugando);
+        CambiarPiso(indice);
     }
 }
