@@ -7,25 +7,27 @@ public class SistemaRiego : MonoBehaviour
     [SerializeField] private Key teclaRiego = Key.Space;
 
     [Header("Rayo")]
-    [Tooltip("Cámara del jugador. Si queda vacío usa la cámara con tag MainCamera.")]
     [SerializeField] private Transform camara;
-    [SerializeField] private float distanciaMaxima = 3f;
+    [SerializeField] private float distanciaMaxima = 4f;
     [SerializeField] private LayerMask capas = ~0;
 
     [Header("Agua")]
-    [Tooltip("Arrastrá acá el Particle System del regador")]
     [SerializeField] private ParticleSystem agua;
 
-    [Header("Cartel (opcional)")]
-    [Tooltip("Canvas vivero: se muestra solo mientras el jugador mira el botón")]
+    [Header("Cartel")]
     [SerializeField] private GameObject canvasCartel;
+
+    [Header("Diagnóstico (dejar apagado cuando funcione)")]
+    [SerializeField] private bool mostrarLogs = false;
 
     private bool regando = false;
 
     private void Start()
     {
-        if (camara == null && Camera.main != null)
-            camara = Camera.main.transform;
+        if (camara == null)
+        {
+            if (Camera.main != null) camara = Camera.main.transform;
+        }
 
         if (agua != null)
             agua.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
@@ -35,19 +37,22 @@ public class SistemaRiego : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance == null || !GameManager.Instance.EstaJugando || camara == null)
+        GameManager gm = GameManager.Instance;
+
+        if (gm == null || !gm.EstaJugando || camara == null)
         {
             MostrarCartel(false);
             return;
         }
 
-        bool mirandoBoton = MirandoAlBoton();
-        MostrarCartel(mirandoBoton);
+        bool mirando = MirandoAlBoton();
+        MostrarCartel(mirando);
 
-        if (mirandoBoton && Keyboard.current != null && Keyboard.current[teclaRiego].wasPressedThisFrame)
-        {
+        if (!mirando) return;
+        if (Keyboard.current == null) return;
+
+        if (Keyboard.current[teclaRiego].wasPressedThisFrame)
             AlternarRiego();
-        }
     }
 
     private bool MirandoAlBoton()
@@ -58,7 +63,8 @@ public class SistemaRiego : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            Debug.Log("Rayo pasó por: " + hit.collider.name);
+            if (mostrarLogs) Debug.Log("El rayo pasó por: " + hit.collider.name);
+
             if (hit.collider.transform.IsChildOf(transform))
                 return true;
         }
@@ -78,8 +84,17 @@ public class SistemaRiego : MonoBehaviour
     private void MostrarCartel(bool mostrar)
     {
         if (canvasCartel == null) return;
-        if (canvasCartel.activeSelf == mostrar) return;
 
-        canvasCartel.SetActive(mostrar);
+        if (mostrar)
+        {
+            // Gira el cartel para que mire al jugador (sin inclinarse)
+            Vector3 dir = canvasCartel.transform.position - camara.position;
+            dir.y = 0f;
+            if (dir.sqrMagnitude > 0.001f)
+                canvasCartel.transform.rotation = Quaternion.LookRotation(dir);
+        }
+
+        if (canvasCartel.activeSelf != mostrar)
+            canvasCartel.SetActive(mostrar);
     }
 }
