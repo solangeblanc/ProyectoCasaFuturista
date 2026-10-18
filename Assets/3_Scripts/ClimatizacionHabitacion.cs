@@ -94,6 +94,13 @@ public class ClimatizacionHabitacion : MonoBehaviour
         }
     }
 
+    // Lo usa el tinte de pantalla: dice si el aire está encendido y en qué modo real trabaja
+    public bool TieneEfecto(out ModoClima efectivo)
+    {
+        efectivo = ModoEfectivo(Exterior());
+        return encendido;
+    }
+
     // Métodos públicos para el panel de programación (próximo paso)
     public void Alternar() { encendido = !encendido; }
     public void Encender() { encendido = true; }

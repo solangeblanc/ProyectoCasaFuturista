@@ -58,6 +58,7 @@
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
     <Compile Include="Assets\3_Scripts\CambioVentana.cs" />
     <Compile Include="Assets\3_Scripts\ControlBienvenida.cs" />
+    <Compile Include="Assets\3_Scripts\TinteClima.cs" />
     <Compile Include="Assets\3_Scripts\SelectorDePisos.cs" />
     <Compile Include="Assets\3_Scripts\Bienvenida TV.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
