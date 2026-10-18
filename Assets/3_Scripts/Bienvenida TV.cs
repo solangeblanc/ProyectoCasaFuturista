@@ -2,60 +2,85 @@ using UnityEngine;
 
 public class BienvenidaTV : MonoBehaviour
 {
-    public GameObject textoEspacio;
-    public GameObject menu;
-    public GameObject jugadorReal;
-    private bool enRango = false;
+    public GameObject TextoEspacio; // PanelHintEspacio
+    public GameObject Menu; // Panel menu principal
 
-    void OnTriggerEnter(Collider c)
+    private bool jugadorCerca = false;
+    private GameObject jugador;
+    private MonoBehaviour playerControllerScript;
+    private MonoBehaviour playerInputScript;
+
+    void Start()
     {
-        if (!c.CompareTag("Player")) return;
-        enRango = true;
-        if (menu != null && !menu.activeSelf && textoEspacio != null)
-            textoEspacio.SetActive(true);
+        TextoEspacio.SetActive(false);
+        Menu.SetActive(false);
     }
 
-    void OnTriggerExit(Collider c)
+    void OnTriggerEnter(Collider other)
     {
-        if (!c.CompareTag("Player")) return;
-        enRango = false;
-        if (textoEspacio != null) textoEspacio.SetActive(false);
-        if (menu != null) menu.SetActive(false);
-        LiberarJugador();
+        if (other.CompareTag("Player"))
+        {
+            jugadorCerca = true;
+            jugador = other.transform.root.gameObject;
+
+            foreach (var s in jugador.GetComponentsInChildren<MonoBehaviour>())
+            {
+                if (s.GetType().Name == "PlayerController") playerControllerScript = s;
+                if (s.GetType().Name == "PlayerInput") playerInputScript = s;
+            }
+
+            // Solo muestra el hint si el menú NO está abierto
+            if (!Menu.activeSelf)
+                TextoEspacio.SetActive(true);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Si el menú está abierto, fuerza el hint apagado
+            if (Menu.activeSelf && TextoEspacio.activeSelf)
+                TextoEspacio.SetActive(false);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            jugadorCerca = false;
+            TextoEspacio.SetActive(false);
+        }
     }
 
     void Update()
     {
-        if (enRango && menu != null && !menu.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        if (jugadorCerca && Input.GetKeyDown(KeyCode.Space) && !Menu.activeSelf)
         {
-            if (textoEspacio != null) textoEspacio.SetActive(false);
-            menu.SetActive(true);
+            // APAGA el hint ANTES de prender el menú
+            TextoEspacio.SetActive(false);
+            Menu.SetActive(true);
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            if (playerControllerScript != null) playerControllerScript.enabled = false;
+            if (playerInputScript != null) playerInputScript.enabled = false;
         }
     }
 
     public void CerrarMenu()
     {
-        if (menu != null) menu.SetActive(false);
-        if (enRango && textoEspacio != null) textoEspacio.SetActive(true);
-        LiberarJugador();
-    }
-
-    void LiberarJugador()
-    {
-        if (jugadorReal == null) return;
-
-        var componentes = jugadorReal.GetComponents<Behaviour>();
-        foreach (var comp in componentes)
-        {
-            if (comp == null) continue; // salta el script roto
-            comp.enabled = true;
-        }
-        var cc = jugadorReal.GetComponent<CharacterController>();
-        if (cc != null) cc.enabled = true;
-
+        Menu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (playerControllerScript != null) playerControllerScript.enabled = true;
+        if (playerInputScript != null) playerInputScript.enabled = true;
+
+        if (jugador == null) jugador = GameObject.FindGameObjectWithTag("Player");
+
+        if (jugadorCerca) TextoEspacio.SetActive(true);
     }
 }
