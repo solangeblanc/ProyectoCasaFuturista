@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum EstadoJuego
 {
-    Bienvenida,   // cartel inicial, juego congelado
-    Jugando,      // el jugador se mueve libremente
-    PanelAbierto  // panel de colores/ventanas/piso abierto
+    Bienvenida,
+    Jugando,
+    PanelAbierto,
+    Pausa
 }
 
 public class GameManager : MonoBehaviour
@@ -15,55 +17,74 @@ public class GameManager : MonoBehaviour
     [Header("Jugador")]
     [Tooltip("Arrastrá acá el objeto Player (el que tiene PlayerController).")]
     [SerializeField] private PlayerController jugador;
+    [SerializeField] private GameObject botonPausa;
+    [SerializeField] private GameObject panelMenuPausa;
+    [SerializeField] private string nombreEscenaMenu = "MenuPrincipal";
 
     public EstadoJuego Estado { get; private set; } = EstadoJuego.Jugando;
-
-    // Otros scripts (UI, sonidos, etc.) pueden suscribirse para enterarse de los cambios.
     public static event Action<EstadoJuego> EstadoCambiado;
 
     private void Awake()
     {
-        // Singleton: una sola instancia por escena.
-        // No usamos DontDestroyOnLoad porque cada escena tiene su propio manager.
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
 
-    private void OnDestroy()
+    private void OnDestroy() { if (Instance == this) Instance = null; }
+
+    private void Update()
     {
-        if (Instance == this) Instance = null;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Estado == EstadoJuego.Pausa) Reanudar();
+            else if (Estado == EstadoJuego.Jugando) Pausar();
+        }
     }
 
     public void CambiarEstado(EstadoJuego nuevoEstado)
     {
         Estado = nuevoEstado;
-
         switch (nuevoEstado)
         {
             case EstadoJuego.Bienvenida:
                 Time.timeScale = 0f;
-                SetCursor(visible: false);
+                SetCursor(false);
                 SetJugadorActivo(false);
+                if (botonPausa != null) botonPausa.SetActive(false);
+                if (panelMenuPausa != null) panelMenuPausa.SetActive(false);
                 break;
 
             case EstadoJuego.PanelAbierto:
                 Time.timeScale = 0f;
-                SetCursor(visible: true);
+                SetCursor(true);
                 SetJugadorActivo(false);
+                if (botonPausa != null) botonPausa.SetActive(false);
+                break;
+
+            case EstadoJuego.Pausa:
+                Time.timeScale = 0f;
+                SetCursor(true);
+                SetJugadorActivo(false);
+                if (panelMenuPausa != null) panelMenuPausa.SetActive(true);
                 break;
 
             case EstadoJuego.Jugando:
                 Time.timeScale = 1f;
-                SetCursor(visible: false);
+                SetCursor(false);
                 SetJugadorActivo(true);
+                if (botonPausa != null) botonPausa.SetActive(true);
+                if (panelMenuPausa != null) panelMenuPausa.SetActive(false);
                 break;
         }
-
         EstadoCambiado?.Invoke(nuevoEstado);
+    }
+
+    public void Pausar() => CambiarEstado(EstadoJuego.Pausa);
+    public void Reanudar() => CambiarEstado(EstadoJuego.Jugando);
+    public void VolverAlMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("0_Bienvenida");
     }
 
     public bool EstaJugando => Estado == EstadoJuego.Jugando;
@@ -73,9 +94,5 @@ public class GameManager : MonoBehaviour
         Cursor.visible = visible;
         Cursor.lockState = visible ? CursorLockMode.None : CursorLockMode.Locked;
     }
-
-    private void SetJugadorActivo(bool activo)
-    {
-        if (jugador != null) jugador.enabled = activo;
-    }
+    private void SetJugadorActivo(bool activo) { if (jugador != null) jugador.enabled = activo; }
 }
