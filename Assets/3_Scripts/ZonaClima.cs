@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class ZonaClima : MonoBehaviour
@@ -12,36 +14,33 @@ public class ZonaClima : MonoBehaviour
     [SerializeField] private Transform puntoAire;
     [SerializeField] private float radio = 4f;
     [SerializeField] private Transform jugador;
-    [Tooltip("Segundos que se muestra el cartel. 0 = mientras esté cerca")]
-    [SerializeField] private float segundosVisible = 6f;
+    [Tooltip("Dejalo en 0: el cartel queda mientras estés cerca")]
+    [SerializeField] private float segundosVisible = 0f;
+
+    [Header("Tecla")]
+    [SerializeField] private Key teclaAire = Key.Space;
 
     [Header("Cartel")]
     [SerializeField] private GameObject panelInfo;
     [SerializeField] private TMP_Text texto;
     [SerializeField] private ClimatizacionHabitacion clima;
 
-    [Header("Diagnóstico")]
-    [SerializeField] private bool mostrarLogs = false;
+    [Header("Botón del cartel")]
+    [SerializeField] private TMP_Text textoBoton;
+    [SerializeField] private Image imagenBoton;
+    [SerializeField] private Color colorApagado = new Color(0.35f, 0.35f, 0.4f);
+    [SerializeField] private Color colorFrio = new Color(0.2f, 0.6f, 0.85f);
+    [SerializeField] private Color colorCalor = new Color(0.9f, 0.5f, 0.2f);
 
     private bool estabaCerca = false;
     private bool agotado = false;
     private float tiempoMostrado = 0f;
-    private float proximoLog = 0f;
 
     private void Start()
     {
         if (jugador == null)
         {
             if (Camera.main != null) jugador = Camera.main.transform;
-        }
-
-        if (mostrarLogs)
-        {
-            if (puntoAire == null) Debug.LogWarning("[Clima] Punto Aire está vacío");
-            if (jugador == null) Debug.LogWarning("[Clima] No hay jugador");
-            if (panelInfo == null) Debug.LogWarning("[Clima] Panel Info está vacío");
-            if (texto == null) Debug.LogWarning("[Clima] Texto está vacío");
-            if (ClimaExterior.Instance == null) Debug.LogWarning("[Clima] No hay ClimaExterior en la escena");
         }
 
         Mostrar(false);
@@ -61,8 +60,7 @@ public class ZonaClima : MonoBehaviour
         Vector3 b = puntoAire.position;
         a.y = 0f;
         b.y = 0f;
-        float distancia = Vector3.Distance(a, b);
-        bool cerca = distancia <= radio;
+        bool cerca = Vector3.Distance(a, b) <= radio;
 
         if (cerca && !estabaCerca)
         {
@@ -83,16 +81,24 @@ public class ZonaClima : MonoBehaviour
             }
         }
 
-        Log("Distancia: " + distancia.ToString("0.0") + " | Cerca: " + cerca + " | Visible: " + visible);
-
         Mostrar(visible);
 
         if (!visible) return;
-        if (texto == null) return;
 
+        if (clima != null && Keyboard.current != null)
+        {
+            if (Keyboard.current[teclaAire].wasPressedThisFrame)
+                clima.Alternar();
+        }
+
+        ActualizarTextos();
+    }
+
+    private void ActualizarTextos()
+    {
         if (ClimaExterior.Instance == null)
         {
-            texto.text = "Falta el script ClimaExterior en el GameManager";
+            if (texto != null) texto.text = "Falta el script ClimaExterior en el GameManager";
             return;
         }
 
@@ -101,18 +107,48 @@ public class ZonaClima : MonoBehaviour
         string modoRecomendado = ClimaExterior.ModoRecomendado(exterior);
 
         float ambiente = temperaturaActual;
+        bool encendido = false;
         string lineaAire = "";
+        ModoClima efectivo = ModoClima.Ventilacion;
+
         if (clima != null)
         {
             ambiente = clima.Temperatura;
             lineaAire = "\nAire: " + clima.EstadoTexto;
+            encendido = clima.TieneEfecto(out efectivo);
         }
 
-        texto.text = nombreCuarto + "\n"
-                   + "Exterior: " + exterior.ToString("0") + " °C\n"
-                   + "Ambiente: " + ambiente.ToString("0.0") + " °C\n"
-                   + "Recomendada: " + recomendada.ToString("0") + " °C (" + modoRecomendado + ")"
-                   + lineaAire;
+        if (texto != null)
+        {
+            texto.text = nombreCuarto + "\n"
+                       + "Exterior: " + exterior.ToString("0") + " °C\n"
+                       + "Ambiente: " + ambiente.ToString("0.0") + " °C\n"
+                       + "Recomendada: " + recomendada.ToString("0") + " °C (" + modoRecomendado + ")"
+                       + lineaAire;
+        }
+
+        if (textoBoton != null)
+        {
+            if (encendido)
+                textoBoton.text = "ESPACIO: Apagar";
+            else
+                textoBoton.text = "ESPACIO: Encender " + NombreEquipo(modoRecomendado)
+                                + " a " + recomendada.ToString("0") + " °C";
+        }
+
+        if (imagenBoton != null)
+        {
+            if (!encendido) imagenBoton.color = colorApagado;
+            else if (efectivo == ModoClima.Calor) imagenBoton.color = colorCalor;
+            else imagenBoton.color = colorFrio;
+        }
+    }
+
+    private string NombreEquipo(string modo)
+    {
+        if (modo == "Calor") return "calefacción";
+        if (modo == "Frío") return "aire frío";
+        return "ventilación";
     }
 
     private void Mostrar(bool mostrar)
@@ -120,15 +156,6 @@ public class ZonaClima : MonoBehaviour
         if (panelInfo == null) return;
         if (panelInfo.activeSelf == mostrar) return;
         panelInfo.SetActive(mostrar);
-    }
-
-    private void Log(string mensaje)
-    {
-        if (!mostrarLogs) return;
-        if (Time.unscaledTime < proximoLog) return;
-
-        proximoLog = Time.unscaledTime + 1f;
-        Debug.Log("[Clima] " + mensaje);
     }
 
     private void OnDrawGizmosSelected()
