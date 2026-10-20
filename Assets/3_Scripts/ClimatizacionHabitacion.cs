@@ -9,9 +9,13 @@ public class ClimatizacionHabitacion : MonoBehaviour
 
     [Header("Control (se puede cambiar en Play para probar)")]
     [SerializeField] private bool encendido = false;
-    [SerializeField] private ModoClima modo = ModoClima.Automatico;
+    [SerializeField] private ModoClima modo = ModoClima.Frio;
     [Range(18f, 30f)]
     [SerializeField] private float objetivo = 24f;
+
+    [Header("Temperaturas al ciclar con la barra espaciadora")]
+    [SerializeField] private float objetivoFrio = 24f;
+    [SerializeField] private float objetivoCalor = 26f;
 
     [Header("Simulación")]
     [Tooltip("Grados por segundo que enfría o calienta el equipo")]
@@ -23,6 +27,8 @@ public class ClimatizacionHabitacion : MonoBehaviour
     public bool Encendido => encendido;
     public ModoClima Modo => modo;
     public float Objetivo => objetivo;
+    public float ObjetivoFrio => objetivoFrio;
+    public float ObjetivoCalor => objetivoCalor;
 
     public string EstadoTexto
     {
@@ -94,14 +100,33 @@ public class ClimatizacionHabitacion : MonoBehaviour
         }
     }
 
-    // Lo usa el tinte de pantalla: dice si el aire está encendido y en qué modo real trabaja
+    // Lo usa el tinte de pantalla
     public bool TieneEfecto(out ModoClima efectivo)
     {
         efectivo = ModoEfectivo(Exterior());
         return encendido;
     }
 
-    // Métodos públicos para el panel de programación (próximo paso)
+    // Barra espaciadora: Apagado -> Frío -> Calor -> Apagado
+    public void Ciclar()
+    {
+        if (!encendido)
+        {
+            encendido = true;
+            modo = ModoClima.Frio;
+            objetivo = objetivoFrio;
+        }
+        else if (modo == ModoClima.Frio)
+        {
+            modo = ModoClima.Calor;
+            objetivo = objetivoCalor;
+        }
+        else
+        {
+            encendido = false;
+        }
+    }
+
     public void Alternar() { encendido = !encendido; }
     public void Encender() { encendido = true; }
     public void Apagar() { encendido = false; }

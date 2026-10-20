@@ -47,7 +47,7 @@ public class ClimaExterior : MonoBehaviour
     public static float Recomendada(float exterior)
     {
         if (exterior >= 26f) return 24f;
-        if (exterior <= 16f) return 21f;
+        if (exterior <= 16f) return 26f;
         return 23f;
     }
 

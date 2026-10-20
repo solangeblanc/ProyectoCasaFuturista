@@ -85,10 +85,11 @@ public class ZonaClima : MonoBehaviour
 
         if (!visible) return;
 
+        // Barra espaciadora: Apagado -> Frío -> Calor -> Apagado
         if (clima != null && Keyboard.current != null)
         {
             if (Keyboard.current[teclaAire].wasPressedThisFrame)
-                clima.Alternar();
+                clima.Ciclar();
         }
 
         ActualizarTextos();
@@ -107,15 +108,12 @@ public class ZonaClima : MonoBehaviour
         string modoRecomendado = ClimaExterior.ModoRecomendado(exterior);
 
         float ambiente = temperaturaActual;
-        bool encendido = false;
         string lineaAire = "";
-        ModoClima efectivo = ModoClima.Ventilacion;
 
         if (clima != null)
         {
             ambiente = clima.Temperatura;
             lineaAire = "\nAire: " + clima.EstadoTexto;
-            encendido = clima.TieneEfecto(out efectivo);
         }
 
         if (texto != null)
@@ -123,32 +121,33 @@ public class ZonaClima : MonoBehaviour
             texto.text = nombreCuarto + "\n"
                        + "Exterior: " + exterior.ToString("0") + " °C\n"
                        + "Ambiente: " + ambiente.ToString("0.0") + " °C\n"
-                       + "Recomendada: " + recomendada.ToString("0") + " °C (" + modoRecomendado + ")"
+                       + "Recomendado: " + modoRecomendado + " a " + recomendada.ToString("0") + " °C"
                        + lineaAire;
         }
 
-        if (textoBoton != null)
+        if (clima == null) return;
+
+        string accion;
+        Color color;
+
+        if (!clima.Encendido)
         {
-            if (encendido)
-                textoBoton.text = "ESPACIO: Apagar";
-            else
-                textoBoton.text = "ESPACIO: Encender " + NombreEquipo(modoRecomendado)
-                                + " a " + recomendada.ToString("0") + " °C";
+            accion = "ESPACIO: Encender aire frío (" + clima.ObjetivoFrio.ToString("0") + " °C)";
+            color = colorApagado;
+        }
+        else if (clima.Modo == ModoClima.Frio)
+        {
+            accion = "ESPACIO: Cambiar a calefacción (" + clima.ObjetivoCalor.ToString("0") + " °C)";
+            color = colorFrio;
+        }
+        else
+        {
+            accion = "ESPACIO: Apagar";
+            color = clima.Modo == ModoClima.Calor ? colorCalor : colorFrio;
         }
 
-        if (imagenBoton != null)
-        {
-            if (!encendido) imagenBoton.color = colorApagado;
-            else if (efectivo == ModoClima.Calor) imagenBoton.color = colorCalor;
-            else imagenBoton.color = colorFrio;
-        }
-    }
-
-    private string NombreEquipo(string modo)
-    {
-        if (modo == "Calor") return "calefacción";
-        if (modo == "Frío") return "aire frío";
-        return "ventilación";
+        if (textoBoton != null) textoBoton.text = accion;
+        if (imagenBoton != null) imagenBoton.color = color;
     }
 
     private void Mostrar(bool mostrar)
