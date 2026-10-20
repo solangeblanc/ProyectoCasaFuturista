@@ -14,10 +14,13 @@ public class SistemaRiego : MonoBehaviour
     [Header("Agua")]
     [SerializeField] private ParticleSystem agua;
 
-    [Header("Cartel")]
+    [Header("Cartel 'ESPACIO para regar'")]
     [SerializeField] private GameObject canvasCartel;
 
-    [Header("Diagnóstico (dejar apagado cuando funcione)")]
+    [Header("Canvas informativo de especies")]
+    [SerializeField] private GameObject canvasInfo;
+
+    [Header("Diagnóstico")]
     [SerializeField] private bool mostrarLogs = false;
 
     private bool regando = false;
@@ -32,7 +35,8 @@ public class SistemaRiego : MonoBehaviour
         if (agua != null)
             agua.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
-        MostrarCartel(false);
+        Mostrar(canvasCartel, false);
+        Mostrar(canvasInfo, false);
     }
 
     private void Update()
@@ -41,12 +45,16 @@ public class SistemaRiego : MonoBehaviour
 
         if (gm == null || !gm.EstaJugando || camara == null)
         {
-            MostrarCartel(false);
+            Mostrar(canvasCartel, false);
+            Mostrar(canvasInfo, false);
             return;
         }
 
         bool mirando = MirandoAlBoton();
-        MostrarCartel(mirando);
+
+        // Antes de regar: cartel "ESPACIO". Regando: canvas con las especies.
+        Mostrar(canvasCartel, mirando && !regando);
+        Mostrar(canvasInfo, mirando && regando);
 
         if (!mirando) return;
         if (Keyboard.current == null) return;
@@ -63,7 +71,7 @@ public class SistemaRiego : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            if (mostrarLogs) Debug.Log("El rayo pasó por: " + hit.collider.name);
+            if (mostrarLogs) Debug.Log("[Riego] El rayo toca: " + hit.collider.name);
 
             if (hit.collider.transform.IsChildOf(transform))
                 return true;
@@ -81,20 +89,10 @@ public class SistemaRiego : MonoBehaviour
         else agua.Stop();
     }
 
-    private void MostrarCartel(bool mostrar)
+    private void Mostrar(GameObject objeto, bool mostrar)
     {
-        if (canvasCartel == null) return;
-
-        if (mostrar)
-        {
-            // Gira el cartel para que mire al jugador (sin inclinarse)
-            Vector3 dir = canvasCartel.transform.position - camara.position;
-            dir.y = 0f;
-            if (dir.sqrMagnitude > 0.001f)
-                canvasCartel.transform.rotation = Quaternion.LookRotation(dir);
-        }
-
-        if (canvasCartel.activeSelf != mostrar)
-            canvasCartel.SetActive(mostrar);
+        if (objeto == null) return;
+        if (objeto.activeSelf == mostrar) return;
+        objeto.SetActive(mostrar);
     }
 }
