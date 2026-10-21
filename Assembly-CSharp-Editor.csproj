@@ -1439,8 +1439,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj" />
-    <ProjectReference Include="sc.vegetationspawner.runtime.csproj" />
-    <ProjectReference Include="sc.vegetationspawner.editor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>
