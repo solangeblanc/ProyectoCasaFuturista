@@ -7,22 +7,51 @@ public class MovAspiradora : MonoBehaviour
     int actual = 0;
     float yFijo;
 
+    [Header("Interacción")]
+    public GameObject canvasAspiradora;
+    public Transform jugador;
+    public float distanciaActivacion = 100f;
+
+    bool encendida = false;
+    bool jugadorCerca = false;
+
     void Start()
     {
         yFijo = transform.position.y;
+        encendida = false;
+        if (canvasAspiradora != null)
+            canvasAspiradora.SetActive(false);
     }
 
     void Update()
     {
+        if (jugador == null) return;
+
+        // chequeo distancia
+        float dist = Vector3.Distance(transform.position, jugador.position);
+        jugadorCerca = dist <= distanciaActivacion;
+
+        // mostrar canvas si estás cerca
+        if (canvasAspiradora != null)
+            canvasAspiradora.SetActive(jugadorCerca);
+
+        // prender / apagar con ESPACIO
+        if (jugadorCerca && Input.GetKeyDown(KeyCode.Space))
+        {
+            encendida = !encendida;
+            Debug.Log("Aspiradora: " + (encendida ? "PRENDIDA" : "APAGADA"));
+        }
+
+        // si está apagada no se mueve
+        if (!encendida) return;
+
         if (puntos.Length == 0) return;
 
         Vector3 destino = puntos[actual].position;
-        destino.y = yFijo; // que los puntos no la tiren abajo
+        destino.y = yFijo;
 
-        // mover
         transform.position = Vector3.MoveTowards(transform.position, destino, velocidad * Time.deltaTime);
 
-        // girar SOLO en Y
         Vector3 dir = destino - transform.position;
         dir.y = 0;
         if (dir.sqrMagnitude > 0.001f)
@@ -37,7 +66,6 @@ public class MovAspiradora : MonoBehaviour
 
     void LateUpdate()
     {
-        // candado final, por si algo la quiere volcar
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         transform.position = new Vector3(transform.position.x, yFijo, transform.position.z);
     }
