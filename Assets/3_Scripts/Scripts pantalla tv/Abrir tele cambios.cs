@@ -7,6 +7,7 @@ public class AbrirTele : MonoBehaviour
     public GameObject panelParedes;
     public GameObject panelPisos;
     public GameObject panelVentanas;
+    public GameObject panelPolarizado; 
     public KeyCode tecla = KeyCode.Space;
     public GameObject jugador;
     private bool jugadorCerca = false;
@@ -30,6 +31,7 @@ public class AbrirTele : MonoBehaviour
             panelParedes.SetActive(false);
             panelPisos.SetActive(false);
             panelVentanas.SetActive(false);
+            panelPolarizado.SetActive(false); 
 
             // congela todo lo del jugador menos este script
             foreach (var s in scriptsJugador) { if (s != null && s.enabled) s.enabled = false; }
