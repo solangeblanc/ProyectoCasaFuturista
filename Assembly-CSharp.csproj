@@ -91,7 +91,7 @@
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\1_Arte\CarpetaMaterialesPisos 1\pisoAmarillo\tiles_0078_keywords.txt" />
+    <None Include="Assets\1_Arte\CarpetaMaterialesPisos\pisoAmarillo\tiles_0078_keywords.txt" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\4_UI\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\4_UI\creditos\NewUXMLcreditos.uxml" />
@@ -99,7 +99,7 @@
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\4_UI\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\1_Arte\CarpetaMaterialesPisos 1\pisoAmarillo\tiles_0078_description.txt" />
+    <None Include="Assets\1_Arte\CarpetaMaterialesPisos\pisoAmarillo\tiles_0078_description.txt" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\4_UI\creditos\NewUSSFilecreditos.uss" />
@@ -675,6 +675,14 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@9c2353fb96f6\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
