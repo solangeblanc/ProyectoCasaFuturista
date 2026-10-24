@@ -49,29 +49,30 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\3_Scripts\Menu tv.cs" />
-    <Compile Include="Assets\3_Scripts\SelectorDeVentanas.cs" />
     <Compile Include="Assets\3_Scripts\PlayerController.cs" />
     <Compile Include="Assets\3_Scripts\ClimaExterior.cs" />
-    <Compile Include="Assets\3_Scripts\Abrir tele cambios.cs" />
-    <Compile Include="Assets\3_Scripts\selectorDePared.cs" />
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
-    <Compile Include="Assets\3_Scripts\CambioVentana.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDePisos.cs" />
     <Compile Include="Assets\3_Scripts\ControlBienvenida.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Bienvenida TV.cs" />
     <Compile Include="Assets\3_Scripts\TinteClima.cs" />
     <Compile Include="Assets\3_Scripts\MovAspiradora.cs" />
-    <Compile Include="Assets\3_Scripts\SelectorDePisos.cs" />
-    <Compile Include="Assets\3_Scripts\Bienvenida TV.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDeVentanas.cs" />
     <Compile Include="Assets\3_Scripts\InformacionCargaSolar.cs" />
     <Compile Include="Assets\3_Scripts\botonPausa.cs" />
+    <Compile Include="Assets\3_Scripts\Polarizado.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz_Bienvenida.cs" />
     <Compile Include="Assets\3_Scripts\LucesInterruptor.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Abrir tele cambios.cs" />
     <Compile Include="Assets\3_Scripts\ZonaClima.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts pantalla tv\selectorDePared.cs" />
     <Compile Include="Assets\3_Scripts\interfazcreditos.cs" />
     <Compile Include="Assets\3_Scripts\ClimatizacionHabitacion.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Menu tv.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
+    <Compile Include="Assets\3_Scripts\NewMonoBehaviourScript.cs" />
     <Compile Include="Assets\3_Scripts\SistemaRiego.cs" />
     <Compile Include="Assets\3_Scripts\GameManager.cs" />
   </ItemGroup>
