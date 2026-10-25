@@ -53,6 +53,7 @@
     <Compile Include="Assets\3_Scripts\ClimaExterior.cs" />
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDePisos.cs" />
+    <Compile Include="Assets\3_Scripts\MovimientoNPC.cs" />
     <Compile Include="Assets\3_Scripts\ControlBienvenida.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Bienvenida TV.cs" />
     <Compile Include="Assets\3_Scripts\TinteClima.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
     <Compile Include="Assets\3_Scripts\NewMonoBehaviourScript.cs" />
     <Compile Include="Assets\3_Scripts\SistemaRiego.cs" />
+    <Compile Include="Assets\3_Scripts\RobotCortacesped.cs" />
     <Compile Include="Assets\3_Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
