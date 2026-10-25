@@ -1,5 +1,5 @@
-
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RobotCortacesped : MonoBehaviour
 {
@@ -10,34 +10,46 @@ public class RobotCortacesped : MonoBehaviour
 
     private void Start()
     {
-        panelInformacionRobot.SetActive(false);
+        MostrarPanel(false);
     }
 
     private void Update()
     {
-        if (jugadorCerca && Input.GetKeyDown(KeyCode.Space))
+        GameManager gm = GameManager.Instance;
+
+        if (gm == null || !gm.EstaJugando)
         {
-            movimientoNPC.IniciarRecorrido();
-            panelInformacionRobot.SetActive(false);
+            MostrarPanel(false);
+            return;
+        }
+
+        MostrarPanel(jugadorCerca);
+
+        if (!jugadorCerca || movimientoNPC == null) return;
+        if (Keyboard.current == null) return;
+
+        if (Keyboard.current[Key.Space].wasPressedThisFrame)
+        {
+            if (movimientoNPC.EnMovimiento) movimientoNPC.Detener();
+            else movimientoNPC.IniciarRecorrido();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            jugadorCerca = true;
-            panelInformacionRobot.SetActive(true);
-        }
+        if (other.CompareTag("Player")) jugadorCerca = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            jugadorCerca = false;
-            panelInformacionRobot.SetActive(false);
-        }
+        if (other.CompareTag("Player")) jugadorCerca = false;
+    }
+
+    private void MostrarPanel(bool mostrar)
+    {
+        if (panelInformacionRobot == null) return;
+        if (panelInformacionRobot.activeSelf == mostrar) return;
+        panelInformacionRobot.SetActive(mostrar);
     }
 }
 

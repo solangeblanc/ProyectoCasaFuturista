@@ -73,7 +73,6 @@
     <Compile Include="Assets\3_Scripts\ClimatizacionHabitacion.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Menu tv.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
-    <Compile Include="Assets\3_Scripts\NewMonoBehaviourScript.cs" />
     <Compile Include="Assets\3_Scripts\SistemaRiego.cs" />
     <Compile Include="Assets\3_Scripts\RobotCortacesped.cs" />
     <Compile Include="Assets\3_Scripts\GameManager.cs" />

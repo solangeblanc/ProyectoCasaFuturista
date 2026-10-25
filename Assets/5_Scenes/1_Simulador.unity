@@ -21113,6 +21113,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519245589}
   m_Mesh: {fileID: 166044757063585128, guid: ba3ab2da137c51a4da372defa694a8e9, type: 3}
+--- !u!1 &528459808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
+  m_PrefabInstance: {fileID: 986669801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &528928088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7734144552340488421, guid: 2995032f19a4d8e40817368460271c8f, type: 3}
@@ -21891,7 +21896,7 @@ Transform:
   m_GameObject: {fileID: 562016569}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -97, y: 0, z: 61.9}
+  m_LocalPosition: {x: 0.8, y: -0.3, z: 481.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23475,7 +23480,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 626588197}
-  - component: {fileID: 626588198}
   m_Layer: 0
   m_Name: FuncionRobot
   m_TagString: Untagged
@@ -23500,24 +23504,6 @@ Transform:
   - {fileID: 1059112219}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &626588198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626588196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b52575dd565144da7d0a04b4c5311c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovimientoNPC
-  puntosRuta:
-  - {fileID: 208868560}
-  - {fileID: 1951240110}
-  - {fileID: 827220820}
-  - {fileID: 562016570}
-  velocidad: 4
 --- !u!4 &632967000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33258481a8f1e714b9a233ce743367f4, type: 3}
@@ -29528,7 +29514,7 @@ Transform:
   m_GameObject: {fileID: 827220819}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -87, y: 0, z: 61.9}
+  m_LocalPosition: {x: -87, y: -0.3, z: 481.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33487,7 +33473,10 @@ PrefabInstance:
     - {fileID: 65702495048144492, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
     - {fileID: -8700617353114198275, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1059112220}
   m_SourcePrefab: {fileID: 100100000, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
 --- !u!4 &987213566 stripped
 Transform:
@@ -35484,6 +35473,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
   m_PrefabInstance: {fileID: 986669801}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1059112220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528459808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b52575dd565144da7d0a04b4c5311c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovimientoNPC
+  puntosRuta:
+  - {fileID: 208868560}
+  - {fileID: 1951240110}
+  - {fileID: 827220820}
+  - {fileID: 562016570}
+  velocidad: 10
+  repetir: 1
 --- !u!1001 &1064077777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40946,7 +40954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RobotCortacesped
   panelInformacionRobot: {fileID: 1437866823}
-  movimientoNPC: {fileID: 626588198}
+  movimientoNPC: {fileID: 1059112220}
 --- !u!65 &1260644281
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58872,6 +58880,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
 --- !u!1 &1947774555
 GameObject:
   m_ObjectHideFlags: 0
@@ -59130,7 +59141,7 @@ Transform:
   m_GameObject: {fileID: 1951240109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -87, y: 0, z: 51.9}
+  m_LocalPosition: {x: 20.8, y: -0.3, z: 461.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64128,6 +64139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
 --- !u!1001 &2099286392
 PrefabInstance:
   m_ObjectHideFlags: 0
