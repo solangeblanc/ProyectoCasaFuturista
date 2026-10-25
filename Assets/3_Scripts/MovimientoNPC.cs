@@ -1,15 +1,26 @@
+
 using UnityEngine;
 
 public class MovimientoNPC : MonoBehaviour
 {
     public Transform[] puntosRuta;
     public float velocidad = 2f;
+
     [Tooltip("Al llegar al último punto vuelve al primero y sigue")]
     public bool repetir = true;
+
+    [Header("Ojos fluorescentes")]
+    public Renderer[] ojos;
+    public Color colorFluor = new Color(0.2f, 1f, 0.05f);
+    public float velocidadParpadeo = 3f;
+    public bool ojosEncendidosAlEstarQuieto = false;
 
     private int puntoActual = 1;
     private bool enMovimiento = false;
     private float alturaInicial;
+
+    private Material[] materialesOjos;
+    private Color[] coloresOriginales;
 
     public bool EnMovimiento => enMovimiento;
 
@@ -17,14 +28,37 @@ public class MovimientoNPC : MonoBehaviour
     {
         alturaInicial = transform.position.y;
 
-        if (puntosRuta != null && puntosRuta.Length > 0 && puntosRuta[0] != null)
+        if (puntosRuta != null && puntosRuta.Length > 0
+            && puntosRuta[0] != null)
+        {
             puntosRuta[0].position = transform.position;
+        }
+
+        if (ojos != null)
+        {
+            materialesOjos = new Material[ojos.Length];
+            coloresOriginales = new Color[ojos.Length];
+
+            for (int i = 0; i < ojos.Length; i++)
+            {
+                if (ojos[i] == null) continue;
+
+                materialesOjos[i] = ojos[i].material;
+                coloresOriginales[i] =
+                    materialesOjos[i].HasProperty("_EmissionColor")
+                    ? materialesOjos[i].GetColor("_EmissionColor")
+                    : Color.black;
+            }
+        }
     }
 
     public void IniciarRecorrido()
     {
         if (puntosRuta == null || puntosRuta.Length < 2) return;
-        if (puntoActual >= puntosRuta.Length) puntoActual = 1;
+
+        if (puntoActual >= puntosRuta.Length)
+            puntoActual = 1;
+
         enMovimiento = true;
     }
 
@@ -35,7 +69,10 @@ public class MovimientoNPC : MonoBehaviour
 
     private void Update()
     {
-        if (!enMovimiento || puntosRuta == null || puntoActual >= puntosRuta.Length)
+        ActualizarOjos();
+
+        if (!enMovimiento || puntosRuta == null
+            || puntoActual >= puntosRuta.Length)
             return;
 
         if (puntosRuta[puntoActual] == null) return;
@@ -43,8 +80,8 @@ public class MovimientoNPC : MonoBehaviour
         Vector3 destino = puntosRuta[puntoActual].position;
         destino.y = alturaInicial;
 
-        transform.position = Vector3.MoveTowards(transform.position, destino,
-                                                 velocidad * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(
+            transform.position, destino, velocidad * Time.deltaTime);
 
         Vector3 direccion = destino - transform.position;
         direccion.y = 0f;
@@ -58,11 +95,49 @@ public class MovimientoNPC : MonoBehaviour
 
             if (puntoActual >= puntosRuta.Length)
             {
-                if (repetir) puntoActual = 0;
-                else enMovimiento = false;
+                if (repetir)
+                    puntoActual = 0;
+                else
+                    enMovimiento = false;
             }
         }
     }
+
+    private void ActualizarOjos()
+    {
+        if (materialesOjos == null) return;
+
+        bool encendidos = enMovimiento || ojosEncendidosAlEstarQuieto;
+        float intensidad = encendidos
+            ? (Mathf.Sin(Time.time * velocidadParpadeo) + 1f) * 2f
+            : 0f;
+
+        for (int i = 0; i < materialesOjos.Length; i++)
+        {
+            if (materialesOjos[i] == null) continue;
+
+            if (materialesOjos[i].HasProperty("_EmissionColor"))
+            {
+                materialesOjos[i].EnableKeyword("_EMISSION");
+                materialesOjos[i].SetColor(
+                    "_EmissionColor", colorFluor * intensidad);
+            }
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (materialesOjos == null) return;
+
+        for (int i = 0; i < materialesOjos.Length; i++)
+        {
+            if (materialesOjos[i] == null) continue;
+
+            materialesOjos[i].SetColor(
+                "_EmissionColor", coloresOriginales[i]);
+        }
+    }
 }
+
 
 
