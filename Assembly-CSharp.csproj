@@ -54,13 +54,17 @@
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDePisos.cs" />
     <Compile Include="Assets\3_Scripts\MovimientoNPC.cs" />
+    <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\3_Scripts\ControlBienvenida.cs" />
+    <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\MovePlayerInput.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Bienvenida TV.cs" />
     <Compile Include="Assets\3_Scripts\TinteClima.cs" />
     <Compile Include="Assets\3_Scripts\MovAspiradora.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDeVentanas.cs" />
     <Compile Include="Assets\3_Scripts\InformacionCargaSolar.cs" />
     <Compile Include="Assets\3_Scripts\botonPausa.cs" />
+    <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\CreatureMover.cs" />
     <Compile Include="Assets\3_Scripts\Polarizado.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
@@ -103,6 +107,7 @@
     <None Include="Assets\4_UI\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\1_Arte\CarpetaMaterialesPisos\pisoAmarillo\tiles_0078_description.txt" />
+    <None Include="Assets\ithappy\PerroAnimacion\Render_Pipeline_Convert\Documentation.txt" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\4_UI\creditos\NewUSSFilecreditos.uss" />
