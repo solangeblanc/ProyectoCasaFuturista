@@ -1,72 +1,79 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-public class MovAspiradora : MonoBehaviour
+public class AspiradoraRandom : MonoBehaviour
 {
-    public Transform[] puntos;
-    public float velocidad = 1.5f;
-    int actual = 0;
-    float yFijo;
+    private NavMeshAgent agent;
+    public float rangoAleatorio = 15f;
+    public float distanciaParaCambiar = 0.8f;
 
-    [Header("Interacción")]
-    public GameObject canvasAspiradora;
-    public Transform jugador;
-    public float distanciaActivacion = 100f;
+    [Header("Canvas")]
+    public GameObject canvas; // el que dice "Presiona espacio para prender/apagar"
 
-    bool encendida = false;
-    bool jugadorCerca = false;
+    private bool jugadorCerca = false;
+    private bool estaPrendida = false;
 
-    void Start()
+    void Awake()
     {
-        yFijo = transform.position.y;
-        encendida = false;
-        if (canvasAspiradora != null)
-            canvasAspiradora.SetActive(false);
+        agent = GetComponent<NavMeshAgent>();
+        agent.enabled = false;
+        canvas.SetActive(false);
     }
 
     void Update()
     {
-        if (jugador == null) return;
-
-        // chequeo distancia
-        float dist = Vector3.Distance(transform.position, jugador.position);
-        jugadorCerca = dist <= distanciaActivacion;
-
-        // mostrar canvas si estás cerca
-        if (canvasAspiradora != null)
-            canvasAspiradora.SetActive(jugadorCerca);
-
-        // prender / apagar con ESPACIO
+        // Solo podes prender/apagar si estas cerca
         if (jugadorCerca && Input.GetKeyDown(KeyCode.Space))
         {
-            encendida = !encendida;
-            Debug.Log("Aspiradora: " + (encendida ? "PRENDIDA" : "APAGADA"));
+            estaPrendida = !estaPrendida;
+            agent.enabled = estaPrendida;
+
+            if (estaPrendida) IrAPuntoRandom();
+            else agent.ResetPath();
         }
 
-        // si está apagada no se mueve
-        if (!encendida) return;
+        if (!estaPrendida) return;
 
-        if (puntos.Length == 0) return;
-
-        Vector3 destino = puntos[actual].position;
-        destino.y = yFijo;
-
-        transform.position = Vector3.MoveTowards(transform.position, destino, velocidad * Time.deltaTime);
-
-        Vector3 dir = destino - transform.position;
-        dir.y = 0;
-        if (dir.sqrMagnitude > 0.001f)
+        // Recorrido aleatorio
+        if (!agent.pathPending && agent.remainingDistance <= distanciaParaCambiar)
         {
-            Quaternion rot = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y, 0);
+            IrAPuntoRandom();
         }
-
-        if (Vector3.Distance(transform.position, destino) < 0.2f)
-            actual = (actual + 1) % puntos.Length;
     }
 
-    void LateUpdate()
+    void IrAPuntoRandom()
     {
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        transform.position = new Vector3(transform.position.x, yFijo, transform.position.z);
+        agent.SetDestination(GetRandomNavMeshPoint(transform.position, rangoAleatorio));
+    }
+
+    Vector3 GetRandomNavMeshPoint(Vector3 centro, float rango)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPos = centro + Random.insideUnitSphere * rango;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPos, out hit, 2f, NavMesh.AllAreas))
+                return hit.position;
+        }
+        return centro;
+    }
+
+    // Detecta cuando te acercas
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            jugadorCerca = true;
+            canvas.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            jugadorCerca = false;
+            canvas.SetActive(false);
+        }
     }
 }
