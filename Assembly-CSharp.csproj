@@ -60,6 +60,7 @@
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\MovePlayerInput.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Bienvenida TV.cs" />
     <Compile Include="Assets\3_Scripts\TinteClima.cs" />
+    <Compile Include="Assets\3_Scripts\PerroRecorrido.cs" />
     <Compile Include="Assets\3_Scripts\MovAspiradora.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDeVentanas.cs" />
     <Compile Include="Assets\3_Scripts\InformacionCargaSolar.cs" />
