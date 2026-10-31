@@ -54,7 +54,9 @@
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDePisos.cs" />
     <Compile Include="Assets\3_Scripts\MovimientoNPC.cs" />
+    <Compile Include="Assets\3_Scripts\MVC\PlayerControl.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\3_Scripts\MVC\PlayerView.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\3_Scripts\ControlBienvenida.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\MovePlayerInput.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Assets\3_Scripts\ZonaClima.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\selectorDePared.cs" />
     <Compile Include="Assets\3_Scripts\interfazcreditos.cs" />
+    <Compile Include="Assets\3_Scripts\MVC\PlayerModel.cs" />
     <Compile Include="Assets\3_Scripts\ClimatizacionHabitacion.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Menu tv.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />

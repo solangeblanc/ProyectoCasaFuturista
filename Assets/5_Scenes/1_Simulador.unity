@@ -21054,17 +21054,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473608303}
   m_CullTransparentMesh: 1
---- !u!114 &474011212 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 661457192562282845, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
-  m_PrefabInstance: {fileID: 4865177309922102553}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027021566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bfbbaa66f44d944d937761142ebc298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1 &474609424
 GameObject:
   m_ObjectHideFlags: 0
@@ -35419,7 +35408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1f58a63cb0c2546b6b56a4d15acf56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  jugador: {fileID: 474011212}
+  jugador: {fileID: 0}
   botonPausa: {fileID: 164207083}
   panelMenuPausa: {fileID: 1056151365}
   nombreEscenaMenu: MenuPrincipal
@@ -37814,6 +37803,49 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8907588176795962896, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
   m_PrefabInstance: {fileID: 4865177309922102553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1027021577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027021566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a57572cebb45da478d271e5e685338e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
+--- !u!114 &1027021578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027021566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65185d3c75fd6a43a624e5e2146e0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerView
+  _camara: {fileID: 427557059}
+--- !u!114 &1027021579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027021566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da575818643c812418636f114cbc6d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerModel
+  _vel: 5
+  _gravedad: -9.81
+  _velocidadMaximaCaida: -20
+  _fuerzaSalto: 0
+  _sensibilidad: 2
+  _ClampCam: 80
 --- !u!1 &1027259769
 GameObject:
   m_ObjectHideFlags: 0
@@ -64961,6 +64993,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
 --- !u!1 &1946015165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 3354d61de77cbf24f840ab2f0d7c74f4, type: 3}
@@ -71013,6 +71048,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
 --- !u!1001 &2099286392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76052,9 +76090,19 @@ PrefabInstance:
     - {fileID: 8805405932708340995, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
     - {fileID: 3780103457989786388, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
     - {fileID: 6537787718727034234, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
+    - {fileID: 661457192562282845, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8907588176795962896, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027021579}
+    - targetCorrespondingSourceObject: {fileID: 8907588176795962896, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027021578}
+    - targetCorrespondingSourceObject: {fileID: 8907588176795962896, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027021577}
   m_SourcePrefab: {fileID: 100100000, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
 --- !u!33 &4869020447342683038
 MeshFilter:
