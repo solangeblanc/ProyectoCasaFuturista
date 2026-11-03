@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MenuTele : MonoBehaviour
+public class Menu_Tele : MonoBehaviour
 {
     public GameObject menuPrincipal;
     public GameObject panelParedes;

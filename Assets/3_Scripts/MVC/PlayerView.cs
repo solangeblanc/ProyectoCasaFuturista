@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController))]//asegura que este game object tenga obligatoriamente el caracter controler
 public class PlayerView : MonoBehaviour
 {
     private CharacterController _CHC;

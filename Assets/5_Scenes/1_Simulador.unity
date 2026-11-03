@@ -20371,7 +20371,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb64fc2afea141e4ebacd5d4e1f66975, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Menutv
+  m_EditorClassIdentifier: Assembly-CSharp::MenuTele
   menuPrincipal: {fileID: 433487713}
   panelParedes: {fileID: 2055726685}
   panelPisos: {fileID: 536483331}
@@ -30199,9 +30199,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 246817884}
-        m_TargetAssemblyTypeName: SimpleTV, Assembly-CSharp
-        m_MethodName: CerrarMenu
+      - m_Target: {fileID: 246817881}
+        m_TargetAssemblyTypeName: MenuTele, Assembly-CSharp
+        m_MethodName: SalirTele
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34154,7 +34154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9c4351e23e96b0a469e530d70fd91756, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 59.4
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9c4351e23e96b0a469e530d70fd91756, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37568,7 +37568,7 @@ MonoBehaviour:
   _gravedad: -9.81
   _velocidadMaximaCaida: -20
   _fuerzaSalto: 0
-  _sensibilidad: 2
+  _sensibilidad: 1
   _ClampCam: 80
 --- !u!1 &1027259769
 GameObject:
@@ -53610,7 +53610,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -47.75502, z: -368.35065, w: -357.42368}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1555670440
@@ -59991,9 +59991,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1465370616}
-        m_TargetAssemblyTypeName: SimpleTV, Assembly-CSharp
-        m_MethodName: CerrarMenu
+      - m_Target: {fileID: 1465370611}
+        m_TargetAssemblyTypeName: MenuTele, Assembly-CSharp
+        m_MethodName: SalirTele
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -64751,6 +64751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
 --- !u!1 &1946015165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 3354d61de77cbf24f840ab2f0d7c74f4, type: 3}
@@ -70720,6 +70723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
 --- !u!1001 &2099286392
 PrefabInstance:
   m_ObjectHideFlags: 0
