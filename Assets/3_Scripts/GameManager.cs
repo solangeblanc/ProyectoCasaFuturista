@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [Header("Jugador")]
-    [Tooltip("Arrastrá acá el objeto Player (el que tiene PlayerController).")]
-    [SerializeField] private PlayerController jugador;
+    [Tooltip("Arrastrá acá el objeto Player (el que tiene PlayerControl).")]
+    [SerializeField] private PlayerControl jugador; // <-- AHORA USA EL NUEVO TIPO
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject panelMenuPausa;
     [SerializeField] private string nombreEscenaMenu = "MenuPrincipal";
@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+
+        // Si te olvidaste de asignarlo, lo busca solo
+        if (jugador == null)
+        {
+            jugador = FindFirstObjectByType<PlayerControl>();
+        }
     }
 
     private void OnDestroy() { if (Instance == this) Instance = null; }
@@ -94,5 +100,15 @@ public class GameManager : MonoBehaviour
         Cursor.visible = visible;
         Cursor.lockState = visible ? CursorLockMode.None : CursorLockMode.Locked;
     }
-    private void SetJugadorActivo(bool activo) { if (jugador != null) jugador.enabled = activo; }
+
+    private void SetJugadorActivo(bool activo)
+    {
+        if (jugador != null)
+        {
+            jugador.enabled = activo;
+            // Si querés que también se congele la vista, descomenta esto:
+            // var view = jugador.GetComponent<PlayerView>();
+            // if(view != null) view.enabled = activo;
+        }
+    }
 }

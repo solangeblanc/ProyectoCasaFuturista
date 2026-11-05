@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class BienvenidaTV : MonoBehaviour
+public class Bienvenida_TV : MonoBehaviour
 {
     public GameObject TextoEspacio; // PanelHintEspacio
     public GameObject Menu; // Panel menu principal
 
     private bool jugadorCerca = false;
     private GameObject jugador;
-    private MonoBehaviour playerControllerScript;
+    private MonoBehaviour playerControlScript;
     private MonoBehaviour playerInputScript;
 
     void Start()
@@ -25,7 +25,7 @@ public class BienvenidaTV : MonoBehaviour
 
             foreach (var s in jugador.GetComponentsInChildren<MonoBehaviour>())
             {
-                if (s.GetType().Name == "PlayerController") playerControllerScript = s;
+                if (s.GetType().Name == "PlayerController") playerControlScript = s;
                 if (s.GetType().Name == "PlayerInput") playerInputScript = s;
             }
 
@@ -65,7 +65,7 @@ public class BienvenidaTV : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            if (playerControllerScript != null) playerControllerScript.enabled = false;
+            if (playerControlScript != null) playerControlScript.enabled = false;
             if (playerInputScript != null) playerInputScript.enabled = false;
         }
     }
@@ -76,11 +76,12 @@ public class BienvenidaTV : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (playerControllerScript != null) playerControllerScript.enabled = true;
+        if (playerControlScript != null) playerControlScript.enabled = true;
         if (playerInputScript != null) playerInputScript.enabled = true;
 
         if (jugador == null) jugador = GameObject.FindGameObjectWithTag("Player");
 
         if (jugadorCerca) TextoEspacio.SetActive(true);
+        
     }
 }

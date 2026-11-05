@@ -11,24 +11,12 @@ public class SelectorDePiso : MonoBehaviour
     // Este es el que van a llamar los botones
     public void CambiarPiso(int indice)
     {
-        if (casaModulos == null)
+        var renderers = casaModulos.GetComponentsInChildren<MeshRenderer>(true);
+        foreach (var r in renderers)
         {
-            Debug.LogError("Casa Modulos sin asignar en SelectorDePiso");
-            return;
+            // Lo dejamos con 1 solo material, no 5
+            r.sharedMaterials = new Material[] { materialesPiso[indice] };
         }
-        if (indice < 0 || indice >= materialesPiso.Length) return;
-
-        MeshRenderer[] todosLosMesh = casaModulos.GetComponentsInChildren<MeshRenderer>(true);
-
-        foreach (MeshRenderer m in todosLosMesh)
-        {
-            string nombre = m.gameObject.name.ToLower();
-            if (nombre.Contains("piso") || nombre.Contains("suelo"))
-            {
-                m.material = materialesPiso[indice];
-            }
-        }
-        Debug.Log("Piso cambiado a: " + materialesPiso[indice].name);
     }
 
     // Para que te ande con tu nombre viejo también

@@ -6,7 +6,7 @@ public class Menu_Tele : MonoBehaviour
     public GameObject panelParedes;
     public GameObject panelPisos;
     public GameObject panelVentanas;
-    public GameObject panelPolarizado; 
+    public GameObject panelPolarizado;
     public GameObject canvasCambios;
     public AbrirTele abrirTeleScript;
 
@@ -20,13 +20,23 @@ public class Menu_Tele : MonoBehaviour
         panelParedes.SetActive(false);
         panelPisos.SetActive(false);
         panelVentanas.SetActive(false);
-        panelPolarizado.SetActive(false); 
+        panelPolarizado.SetActive(false);
         menuPrincipal.SetActive(true);
     }
 
     public void SalirTele()
     {
-        canvasCambios.SetActive(false);
-        abrirTeleScript.Descongelar();
+        // NO apagues el Canvas entero, porque ahí adentro está el hint
+        menuPrincipal.SetActive(false);
+        panelParedes.SetActive(false);
+        panelPisos.SetActive(false);
+        panelVentanas.SetActive(false);
+        panelPolarizado.SetActive(false);
+        // canvasCambios.SetActive(false); <-- BORRA O COMENTA ESTA LINEA
+
+        if (abrirTeleScript != null)
+            abrirTeleScript.Descongelar();
+        else
+            FindObjectOfType<Bienvenida_TV>().CerrarMenu();
     }
 }
