@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Bienvenida_TV.cs" />
+    <Compile Include="Assets\3_Scripts\CamaraVigila.cs" />
     <Compile Include="Assets\3_Scripts\ClimaExterior.cs" />
     <Compile Include="Assets\3_Scripts\MVC\NoUSadoPlayerController.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Polarizado.cs" />
