@@ -8873,7 +8873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gris
+  m_text: Cer. gris
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -22061,7 +22061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &470950825
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24700,7 +24700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &536483332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26220,9 +26220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rojo
-
-'
+  m_text: Mad. osc.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -38803,7 +38801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Madera \n\n"
+  m_text: Cer. negra
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -47683,7 +47681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Negro
+  m_text: Cer. negra
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -51685,7 +51683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Gris \n"
+  m_text: Mad. clara
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -53554,7 +53552,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Madera '
+  m_text: Mad. beige
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -54362,7 +54360,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ceramica '
+  m_text: Mad. blanca
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -56510,10 +56508,10 @@ MonoBehaviour:
   casaModulos: {fileID: 6279209918831142541}
   materialesPiso:
   - {fileID: 2100000, guid: 7b93b374d99c459408ae504c3d613f5a, type: 2}
-  - {fileID: 1480514548612469732, guid: 8c97a58824f53c94eb56d9c41e840e2b, type: 3}
-  - {fileID: 8219506568255949353, guid: 469c44dffc103af438f46e908e892e46, type: 3}
   - {fileID: 2100000, guid: 2251d7855b94005468c63e1937cefe1a, type: 2}
-  - {fileID: 2100000, guid: 7b160fe49f6059744a190f9c52606fc7, type: 2}
+  - {fileID: 2100000, guid: 5cb7e21c306776c4fa7e122f359baa93, type: 2}
+  - {fileID: 2100000, guid: ffc016284f3003347a817afae5c0560c, type: 2}
+  - {fileID: 2100000, guid: d42f50e5473824441b6bb8d96814ca0c, type: 2}
 --- !u!114 &1465370613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66224,7 +66222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Beige
+  m_text: Mad. beige
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -67160,7 +67158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2719591386728247933, guid: 46fc9da6ddd20d349aaae00604c896cc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -2719591386728247933, guid: 46fc9da6ddd20d349aaae00604c896cc, type: 3}
       propertyPath: m_LocalScale.y
@@ -67224,7 +67222,7 @@ PrefabInstance:
       objectReference: {fileID: -8421449675452338165, guid: 4b64860f974c4be499126e2a089ea316, type: 3}
     - target: {fileID: 5107304447429080724, guid: 46fc9da6ddd20d349aaae00604c896cc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5107304447429080724, guid: 46fc9da6ddd20d349aaae00604c896cc, type: 3}
       propertyPath: m_LocalScale.y
@@ -70907,7 +70905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ceramica
+  m_text: Mad. osc.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -76434,10 +76432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
-  luces: []
-  textoInteraccion: {fileID: 0}
-  tecla: 32
-  empiezanEncendidas: 0
 --- !u!1 &1946015165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 3354d61de77cbf24f840ab2f0d7c74f4, type: 3}
@@ -87638,10 +87632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
-  luces: []
-  textoInteraccion: {fileID: 0}
-  tecla: 32
-  empiezanEncendidas: 0
 --- !u!1001 &2099286392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94014,7 +94004,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780280663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
