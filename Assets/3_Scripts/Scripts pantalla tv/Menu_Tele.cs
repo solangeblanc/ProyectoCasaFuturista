@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class Menu_Tele : MonoBehaviour
-{
+{//objetos para arrastrar al inspector
     public GameObject menuPrincipal;
     public GameObject panelParedes;
     public GameObject panelPisos;
@@ -16,7 +16,7 @@ public class Menu_Tele : MonoBehaviour
     public void MostrarPolarizado() { menuPrincipal.SetActive(false); panelPolarizado.SetActive(true); }
 
     public void VolverMenu()
-    {
+    {//al presionar volver se apaga todo y vuelve al menu principal
         panelParedes.SetActive(false);
         panelPisos.SetActive(false);
         panelVentanas.SetActive(false);
@@ -26,17 +26,17 @@ public class Menu_Tele : MonoBehaviour
 
     public void SalirTele()
     {
-        // NO apagues el Canvas entero, porque ahí adentro está el hint
+        // todo termina apagado despues de tocar salir 
         menuPrincipal.SetActive(false);
         panelParedes.SetActive(false);
         panelPisos.SetActive(false);
         panelVentanas.SetActive(false);
         panelPolarizado.SetActive(false);
-        // canvasCambios.SetActive(false); <-- BORRA O COMENTA ESTA LINEA
 
         if (abrirTeleScript != null)
-            abrirTeleScript.Descongelar();
+            abrirTeleScript.Descongelar();//llama a la funcion descongelar de tv script 
         else
             FindObjectOfType<Bienvenida_TV>().CerrarMenu();
+        //si no, busca automáticamente el script nuevo (Bienvenida_TV) para cerrar el menú y devolver el control.
     }
 }

@@ -4,6 +4,7 @@ public class Polarizado : MonoBehaviour
 {
     [Header("Ventanas")]
     public Renderer[] ventanas;
+    //arma una lista para sumar las ventanas a modificar en el inspector
     public Material vidrioNormal;
     public Material vidrioPolarizado;
 
@@ -13,7 +14,7 @@ public class Polarizado : MonoBehaviour
 
     void CambiarSoloVidrio(Material nuevo)
     {
-        foreach (var r in ventanas)
+        foreach (var r in ventanas)//se revisa cada material de la lista 
         {
             var mats = r.materials; // copia de los 2 materiales
             for (int i = 0; i < mats.Length; i++)
@@ -21,10 +22,10 @@ public class Polarizado : MonoBehaviour
                 // Solo cambia si el nombre contiene "vidrio"
                 if (mats[i].name.ToLower().Contains("vidrio"))
                 {
-                    mats[i] = nuevo;
+                    mats[i] = nuevo;// se le pone el nuevo material
                 }
             }
-            r.materials = mats;
+            r.materials = mats;// se guardan los cambios de las ventanas
         }
     }
 
@@ -37,5 +38,5 @@ public class Polarizado : MonoBehaviour
         panelMenuPrincipal.SetActive(true);
     }
 
-    public void BotonVolver() => BotonConfirmar();
+    public void BotonVolver() => BotonConfirmar();//volver hace lo mismo que confirmar 
 }

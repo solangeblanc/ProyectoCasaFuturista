@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class AbrirTele : MonoBehaviour
-{
+{//diferentes objetos para arrastrar al inspector 
     public GameObject canvasCambios;
     public GameObject menuPrincipal;
     public GameObject panelParedes;
@@ -13,7 +13,8 @@ public class AbrirTele : MonoBehaviour
     public KeyCode tecla = KeyCode.Space;
     public GameObject jugador;
     private bool jugadorCerca = false;
-    private MonoBehaviour[] scriptsJugador;
+    //para saber si el jugador esta cerca, empieza en falso
+    private MonoBehaviour[] scriptsJugador;//una lista para guardar los movimientos del jugador
 
     void Awake()
     {
@@ -27,7 +28,7 @@ public class AbrirTele : MonoBehaviour
         if (panelVentanas != null) panelVentanas.SetActive(false);
         if (panelPolarizado != null) panelPolarizado.SetActive(false);
 
-        // El hint SI inicia prendido como pediste
+        // El hint inicia prendido 
         if (panelHintEspacio != null) panelHintEspacio.SetActive(true);
         // El canvas padre tiene que quedar prendido
         if (canvasCambios != null) canvasCambios.SetActive(true);
@@ -35,18 +36,18 @@ public class AbrirTele : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))//cuando el jugador entra en zona 
         {
             jugadorCerca = true;
-            if (panelHintEspacio != null) panelHintEspacio.SetActive(true);
+            if (panelHintEspacio != null) panelHintEspacio.SetActive(true);//activar panel
         }
     }
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)//cuando el jugador sale 
     {
         if (other.CompareTag("Player"))
         {
             jugadorCerca = false;
-            if (panelHintEspacio != null) panelHintEspacio.SetActive(false);
+            if (panelHintEspacio != null) panelHintEspacio.SetActive(false);//desactivar panel
         }
     }
 
@@ -64,7 +65,7 @@ public class AbrirTele : MonoBehaviour
             if (panelHintEspacio != null) panelHintEspacio.SetActive(false);
 
             foreach (var s in scriptsJugador) { if (s != null && s.enabled) s.enabled = false; }
-
+            // se apagan todos los scripts del jugador para que no se pueda mover cuando esta activo el menu
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -73,10 +74,11 @@ public class AbrirTele : MonoBehaviour
     public void Descongelar()
     {
         foreach (var s in scriptsJugador) { if (s != null) s.enabled = true; }
+        //se vuelven a encender los scripts 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         if (jugadorCerca && panelHintEspacio != null)
             panelHintEspacio.SetActive(true);
-    }
+    }// si sigue estando cerca de la tele se vuelve a encender el panel hint 
 }
