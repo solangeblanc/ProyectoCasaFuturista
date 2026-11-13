@@ -36,7 +36,7 @@ public class Menu_Tele : MonoBehaviour
         if (abrirTeleScript != null)
             abrirTeleScript.Descongelar();//llama a la funcion descongelar de tv script 
         else
-            FindObjectOfType<Bienvenida_TV>().CerrarMenu();
+            FindAnyObjectByType<Bienvenida_TV>().CerrarMenu();
         //si no, busca automáticamente el script nuevo (Bienvenida_TV) para cerrar el menú y devolver el control.
     }
 }

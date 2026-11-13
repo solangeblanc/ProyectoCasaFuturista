@@ -54,7 +54,6 @@
     <Compile Include="Assets\3_Scripts\ClimaExterior.cs" />
     <Compile Include="Assets\3_Scripts\MVC\NoUSadoPlayerController.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Polarizado.cs" />
-    <Compile Include="Assets\3_Scripts\GirarAspersor.cs" />
     <Compile Include="Assets\3_Scripts\AudioManager.cs" />
     <Compile Include="Assets\3_Scripts\CanvaEscalera.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDePisos.cs" />
@@ -66,11 +65,9 @@
     <Compile Include="Assets\3_Scripts\ControlBienvenida.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\MovePlayerInput.cs" />
     <Compile Include="Assets\3_Scripts\TinteClima.cs" />
-    <Compile Include="Assets\3_Scripts\PerroRecorrido.cs" />
     <Compile Include="Assets\3_Scripts\MovAspiradora.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDeVentanas.cs" />
     <Compile Include="Assets\3_Scripts\HeadBobbing.cs" />
-    <Compile Include="Assets\3_Scripts\InformacionCargaSolar.cs" />
     <Compile Include="Assets\3_Scripts\CambioColorLuz.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\CreatureMover.cs" />
     <Compile Include="Assets\3_Scripts\RiegoControlJardin.cs" />
@@ -84,12 +81,15 @@
     <Compile Include="Assets\3_Scripts\MVC\PlayerModel.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz inicio\Interfaz_Bienvenida.cs" />
     <Compile Include="Assets\3_Scripts\ClimatizacionHabitacion.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts jardin\PerroRecorrido.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Abrir_Tele.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz inicio\interfazcreditos.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
     <Compile Include="Assets\3_Scripts\SistemaRiego.cs" />
     <Compile Include="Assets\3_Scripts\RobotCortacesped.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts jardin\GirarAspersor.cs" />
     <Compile Include="Assets\3_Scripts\GameManager.cs" />
+    <Compile Include="Assets\3_Scripts\Scripts jardin\InformacionCargaSolar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\4_UI\TextMesh Pro\Shaders\TMPro.cginc" />

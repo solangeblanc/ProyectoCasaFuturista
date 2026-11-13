@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Jugador")]
     [Tooltip("Arrastrá acá el objeto Player (el que tiene PlayerControl).")]
-    [SerializeField] private PlayerControl jugador; // <-- AHORA USA EL NUEVO TIPO
+    [SerializeField] private PlayerControl jugador; 
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject panelMenuPausa;
     [SerializeField] private string nombreEscenaMenu = "MenuPrincipal";
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         // Si te olvidaste de asignarlo, lo busca solo
         if (jugador == null)
         {
-            jugador = FindFirstObjectByType<PlayerControl>();
+            jugador = FindAnyObjectByType<PlayerControl>();
         }
     }
 
