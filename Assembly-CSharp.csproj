@@ -69,6 +69,7 @@
     <Compile Include="Assets\3_Scripts\PerroRecorrido.cs" />
     <Compile Include="Assets\3_Scripts\MovAspiradora.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDeVentanas.cs" />
+    <Compile Include="Assets\3_Scripts\HeadBobbing.cs" />
     <Compile Include="Assets\3_Scripts\InformacionCargaSolar.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\CreatureMover.cs" />
     <Compile Include="Assets\3_Scripts\RiegoControlJardin.cs" />

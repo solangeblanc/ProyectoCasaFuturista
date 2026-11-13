@@ -38801,7 +38801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cer. negra
+  m_text: C.Negra
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -48423,6 +48423,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238448698}
   m_Mesh: {fileID: 4493585093827132993, guid: 02a4fef3dd10662458eb0ebed3041f0c, type: 3}
+--- !u!1 &1238641399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3406074021391695073, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
+  m_PrefabInstance: {fileID: 4865177309922102553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1239228826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70932,8 +70937,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -73009,6 +73014,35 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 4078063860032969087, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
   m_PrefabInstance: {fileID: 4865177309922102553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1826676958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238641399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbec104a45a00bf4b9c647bc9443c827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeadBobbing
+  bobbingAmount: 0.01
+  bobbingSpeed: 4
+--- !u!114 &1826676959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238641399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f9193c4a449d146aa46b786944ddd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSwayTilt
+  tiltAngle: 1.5
+  tiltSpeed: 6
+  currentTilt: 0
 --- !u!1 &1828603439 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9157943139577863650, guid: 50e37a248bbcad741948efe93c229a15, type: 3}
@@ -76432,6 +76466,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
+  empiezanEncendidas: 0
 --- !u!1 &1946015165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 3354d61de77cbf24f840ab2f0d7c74f4, type: 3}
@@ -87632,6 +87670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
+  empiezanEncendidas: 0
 --- !u!1001 &2099286392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92801,6 +92843,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8907588176795962896, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1027021577}
+    - targetCorrespondingSourceObject: {fileID: 3406074021391695073, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1826676958}
+    - targetCorrespondingSourceObject: {fileID: 3406074021391695073, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1826676959}
   m_SourcePrefab: {fileID: 100100000, guid: ff5cd9fa03f00c347a2c6e861f760882, type: 3}
 --- !u!4 &4876398640393102459
 Transform:
