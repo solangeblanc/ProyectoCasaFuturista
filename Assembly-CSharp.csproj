@@ -71,6 +71,7 @@
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDeVentanas.cs" />
     <Compile Include="Assets\3_Scripts\HeadBobbing.cs" />
     <Compile Include="Assets\3_Scripts\InformacionCargaSolar.cs" />
+    <Compile Include="Assets\3_Scripts\CambioColorLuz.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\CreatureMover.cs" />
     <Compile Include="Assets\3_Scripts\RiegoControlJardin.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Menu_Tele.cs" />
     <Compile Include="Assets\3_Scripts\ZonaClima.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\selectorDePared.cs" />
+    <Compile Include="Assets\3_Scripts\FocusZoom.cs" />
     <Compile Include="Assets\3_Scripts\MVC\PlayerModel.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz inicio\Interfaz_Bienvenida.cs" />
     <Compile Include="Assets\3_Scripts\ClimatizacionHabitacion.cs" />

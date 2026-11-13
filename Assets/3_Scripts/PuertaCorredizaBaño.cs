@@ -32,6 +32,7 @@ public class PuertaCorredizaBaño : MonoBehaviour
 
     private void Update()
     {
+      
         // Solo permitimos interactuar si el jugador está cerca y presiona la tecla
         if (jugadorCerca && GameManager.Instance.EstaJugando && Keyboard.current != null && Keyboard.current[teclaAccion].wasPressedThisFrame)
         {
