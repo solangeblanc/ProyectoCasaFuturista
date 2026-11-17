@@ -11,11 +11,23 @@ public class RobotCortacesped : MonoBehaviour
     public Transform ruedaDerecha;
     public float velocidadGiroRuedas = 500f; // Ajusta esta velocidad según necesites
 
+    // AudioSource con el sonido de la cortadora. Se arrastra desde el Inspector.
+    [Header("Sonido")]
+    public AudioSource audioCortadora;
+
     private bool jugadorCerca = false;
 
     private void Start()
     {
         MostrarPanel(false);
+
+        // si no se arrastró el AudioSource, lo busca en el robot que se mueve.
+        if (audioCortadora == null && movimientoNPC != null)
+            audioCortadora = movimientoNPC.GetComponentInChildren<AudioSource>();
+
+        // arranca en silencio.
+        if (audioCortadora != null)
+            audioCortadora.Stop();
     }
 
     private void Update()
@@ -25,6 +37,7 @@ public class RobotCortacesped : MonoBehaviour
         if (gm == null || !gm.EstaJugando)
         {
             MostrarPanel(false);
+            ActualizarSonido(false);  
             return;
         }
 
@@ -40,11 +53,23 @@ public class RobotCortacesped : MonoBehaviour
             }
         }
 
+        //  la cortadora suena solo mientras el robot está en movimiento.
+        ActualizarSonido(movimientoNPC != null && movimientoNPC.EnMovimiento);
+
         // Si el robot está en movimiento, girar las ruedas
         if (movimientoNPC != null && movimientoNPC.EnMovimiento)
         {
             GirarRuedas();
         }
+    }
+
+    //  enciende o apaga el sonido. Comprueba isPlaying para no reiniciarlo en cada frame.
+    private void ActualizarSonido(bool sonar)
+    {
+        if (audioCortadora == null || audioCortadora.clip == null) return;
+
+        if (sonar && !audioCortadora.isPlaying) audioCortadora.Play();
+        else if (!sonar && audioCortadora.isPlaying) audioCortadora.Stop();
     }
 
     private void GirarRuedas()
