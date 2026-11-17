@@ -90,7 +90,8 @@ public class GameManager : MonoBehaviour
     public void VolverAlMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("0_Bienvenida");
+        if (AudioManager.Instance != null) AudioManager.Instance.DetenerMusica();
+        SceneManager.LoadScene("0_bienvenida");
     }
 
     public bool EstaJugando => Estado == EstadoJuego.Jugando;

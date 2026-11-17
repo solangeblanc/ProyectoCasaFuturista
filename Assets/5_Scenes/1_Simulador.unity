@@ -41312,7 +41312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d197b6839d7910d4e978274ce33a1060, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42026,7 +42026,7 @@ MonoBehaviour:
   canvasCartel: {fileID: 1108247344}
   sonidoAbrir: {fileID: 8300000, guid: 131296402cbc5514bac5e0b9f4c99816, type: 3}
   sonidoCerrar: {fileID: 8300000, guid: 131296402cbc5514bac5e0b9f4c99816, type: 3}
-  volumenSonido: 0.07
+  volumenSonido: 0.26
   distanciaMinimaSonido: 30
   distanciaMaximaSonido: 250
 --- !u!65 &1012682722
@@ -43507,11 +43507,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1063094944 stripped
 Transform:
@@ -52539,7 +52539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ae32705c19f9bf41a185e0330fe7a6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.24124
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ae32705c19f9bf41a185e0330fe7a6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57145,13 +57145,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "                         Energia solar de la casa\n \nInformaci\xF3n tecnica:\n-
-    12 paneles de 550 W = 6,6 kw de potencia pico.\n- Inclinaci\xF3n 30 \xB0 orientaci\xF3n
-    Norte.\n- Superficie 50 m2.\nGeneraci\xF3n estimada:\n- 22 km por d\xEDa (670
-    kwh por mes)\n- 4,5 horas sol pico.\n- Rendimiento del 75 %.\nAlmacenamiento:\n-
-    5 baterias de litio de 5,12 kwh \n- Total 25,6 kwh -  utilizables =23 kwh.\nAutomomia:\nEntre
-    un dia y medio y 2 dias de consumo medio.\n\n                      Presiona [ESP]
-    para abrir\n"
+  m_text: "Energia solar de la casa\n \nInformaci\xF3n tecnica:\n- 12 paneles de
+    550 W = 6,6 kw de potencia pico.\n- Inclinaci\xF3n 30 \xB0 orientaci\xF3n Norte.\n-
+    Superficie 50 m2.\nGeneraci\xF3n estimada:\n- 22 km por d\xEDa (670 kwh por mes)\n-
+    4,5 horas sol pico.\n- Rendimiento del 75 %.\nAlmacenamiento:\n- 5 baterias de
+    litio de 5,12 kwh \n- Total 25,6 kwh -  utilizables =23 kwh.\nAutomomia:\nEntre
+    un dia y medio y 2 dias de consumo medio.\n\nPresiona [ESP] para abrir\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
   m_sharedMaterial: {fileID: -3536788996826814725, guid: 755364506d3ccd646b279f013b0a6697, type: 2}
@@ -78826,10 +78825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
-  luces: []
-  textoInteraccion: {fileID: 0}
-  tecla: 32
-  empiezanEncendidas: 0
 --- !u!1 &1946015165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 3354d61de77cbf24f840ab2f0d7c74f4, type: 3}
@@ -90116,10 +90111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
-  luces: []
-  textoInteraccion: {fileID: 0}
-  tecla: 32
-  empiezanEncendidas: 0
 --- !u!1001 &2099286392
 PrefabInstance:
   m_ObjectHideFlags: 0
