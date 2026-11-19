@@ -76,6 +76,7 @@
     <Compile Include="Assets\3_Scripts\Descubrimientos\RegistroDescubrimientos.cs" />
     <Compile Include="Assets\3_Scripts\CambioColorLuz.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\CreatureMover.cs" />
+    <Compile Include="Assets\3_Scripts\RanaSaltarina.cs" />
     <Compile Include="Assets\3_Scripts\RiegoControlJardin.cs" />
     <Compile Include="Assets\NewMonoBehaviourScript.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
