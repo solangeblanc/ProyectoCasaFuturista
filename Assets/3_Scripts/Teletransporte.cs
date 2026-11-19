@@ -22,6 +22,7 @@ public class Teletransporte : MonoBehaviour
     // Cartel (Canvas o panel) que avisa que se puede usar la escalera. Se muestra al entrar a la zona y se oculta al salir.
     [SerializeField] private GameObject cartelEscalera;
 
+
     // Recuerda si el jugador está dentro de la zona en este momento.
     private bool jugadorCerca = false;
     // Referencia al objeto del jugador que entró a la zona. Se guarda en OnTriggerEnter.
@@ -65,6 +66,9 @@ public class Teletransporte : MonoBehaviour
         // Oculta el cartel de la escalera, porque el jugador ya no está en la zona.
         if (cartelEscalera != null)
             cartelEscalera.SetActive(false);
+
+        // Avisa al registro de descubrimientos que el jugador usó la escalera.
+        RegistroDescubrimientos.Descubrir("escalera");
 
         jugadorCerca = false; // para que no se teletransporte 2 veces seguidas
     }

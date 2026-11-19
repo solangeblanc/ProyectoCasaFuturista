@@ -167,6 +167,8 @@ public class PerroRecorrido : MonoBehaviour
             MostrarMensaje(false);                 // el cartel desaparece
             if (ladrarAlArrancar) Ladrar();
             estado = Estado.Recorriendo;           // el perro arranca
+            // Avisa al registro de descubrimientos que el jugador despertó al perro.
+            RegistroDescubrimientos.Descubrir("perro");
         }
         else
         {

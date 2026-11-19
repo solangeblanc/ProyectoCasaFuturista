@@ -24,7 +24,7 @@ public class ZonaClima : MonoBehaviour
     [SerializeField] private Transform puntoAire;
     // Distancia horizontal máxima, en unidades de Unity, a la que el jugador ve el cartel.
     [SerializeField] private float radio = 4f;
-    // CORREGIDO: altura máxima (Y global) que puede tener el jugador para ver el cartel.
+    // altura máxima (Y global) que puede tener el jugador para ver el cartel.
     // El aire está en la planta baja, así que si el jugador está más arriba que este valor (primer piso),
     // el cartel no aparece aunque esté justo encima del aire.
     // Tiene que quedar entre la Y del jugador en la planta baja (aprox. -6) y en el primer piso (aprox. 67).
@@ -93,7 +93,7 @@ public class ZonaClima : MonoBehaviour
             return;
         }
 
-        // CORREGIDO: comprueba si el jugador está en la planta baja, mirando su altura global.
+        //  comprueba si el jugador está en la planta baja, mirando su altura global.
         // Se calcula ANTES de poner la Y en 0 más abajo; si se calculara después, siempre daría 0.
         bool mismoPiso = jugador.position.y <= alturaMaximaJugador;
 
@@ -103,7 +103,7 @@ public class ZonaClima : MonoBehaviour
         // Pone la altura (Y) en 0 en ambas, para medir la distancia solo en el plano horizontal.
         a.y = 0f;
         b.y = 0f;
-        // CORREGIDO: ahora el jugador tiene que estar en el piso correcto Y dentro del radio horizontal.
+        //  ahora el jugador tiene que estar en el piso correcto Y dentro del radio horizontal.
         // Antes solo se comprobaba el radio, por eso el cartel aparecía también en el piso de arriba.
         bool cerca = mismoPiso && Vector3.Distance(a, b) <= radio;
 
@@ -142,7 +142,11 @@ public class ZonaClima : MonoBehaviour
         {
             // wasPressedThisFrame es true solo en el frame en que se apretó la tecla.
             if (Keyboard.current[teclaAire].wasPressedThisFrame)
+            {
                 clima.Ciclar();
+                // Avisa al registro de descubrimientos que el jugador usó el aire acondicionado.
+                RegistroDescubrimientos.Descubrir("aire");
+            }
         }
 
         // Actualiza el texto del cartel y el botón con los datos actuales.

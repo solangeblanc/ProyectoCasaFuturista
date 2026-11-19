@@ -22,6 +22,8 @@ public class RiegoControlJardin : MonoBehaviour
         if (jugadorDentro && Input.GetKeyDown(KeyCode.Space))
         {
             AplicarRiego(!regando);
+            // Avisa al registro de descubrimientos que el jugador usó el regador del jardín.
+            RegistroDescubrimientos.Descubrir("regadorJardin");
         }
     }
 

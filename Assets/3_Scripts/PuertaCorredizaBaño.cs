@@ -67,6 +67,8 @@ public class PuertaCorredizaBaño : MonoBehaviour
         if (jugadorCerca && GameManager.Instance.EstaJugando && Keyboard.current != null && Keyboard.current[teclaAccion].wasPressedThisFrame)
         {
             abierta = !abierta; // Alterna el estado (si estaba abierta pasa a cerrada y viceversa)
+            
+            RegistroDescubrimientos.Descubrir("puertas");
 
             // reproduce el sonido que corresponde al nuevo estado.
             ReproducirSonido(abierta ? sonidoAbrir : sonidoCerrar);

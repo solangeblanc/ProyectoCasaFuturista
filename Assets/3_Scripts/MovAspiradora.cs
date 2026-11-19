@@ -28,7 +28,12 @@ public class AspiradoraRandom : MonoBehaviour
             estaPrendida = !estaPrendida;
             agent.enabled = estaPrendida;
 
-            if (estaPrendida) IrAPuntoRandom();
+            if (estaPrendida)
+            {
+                IrAPuntoRandom();
+                // Avisa al registro de descubrimientos que el jugador activó la aspiradora robot.
+                RegistroDescubrimientos.Descubrir("aspiradora");
+            }
             else agent.ResetPath();
         }
 

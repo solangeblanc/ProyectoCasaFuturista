@@ -49,6 +49,9 @@ public class InterruptorLuz : MonoBehaviour
                 // Invierte el estado de cada luz: si estaba encendida (activa) la apaga, y viceversa.
                 luz.SetActive(!luz.activeSelf);
             }
+
+            // Avisa al registro de descubrimientos que el jugador usó las luces.
+            RegistroDescubrimientos.Descubrir("luces");
         }
     }
 

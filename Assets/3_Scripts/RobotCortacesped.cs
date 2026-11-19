@@ -37,7 +37,7 @@ public class RobotCortacesped : MonoBehaviour
         if (gm == null || !gm.EstaJugando)
         {
             MostrarPanel(false);
-            ActualizarSonido(false);  
+            ActualizarSonido(false);
             return;
         }
 
@@ -49,7 +49,12 @@ public class RobotCortacesped : MonoBehaviour
             if (Keyboard.current[Key.Space].wasPressedThisFrame)
             {
                 if (movimientoNPC.EnMovimiento) movimientoNPC.Detener();
-                else movimientoNPC.IniciarRecorrido();
+                else
+                {
+                    movimientoNPC.IniciarRecorrido();
+                    // Avisa al registro de descubrimientos que el jugador activó el robot.
+                    RegistroDescubrimientos.Descubrir("cortadora");
+                }
             }
         }
 

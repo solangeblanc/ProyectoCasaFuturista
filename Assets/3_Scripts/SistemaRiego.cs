@@ -1,4 +1,3 @@
-
 // Importa las clases básicas de Unity (MonoBehaviour, Transform, Physics, ParticleSystem, etc.)
 using UnityEngine;
 // Importa el nuevo Input System, necesario para leer el teclado con Keyboard.current y Key.
@@ -121,6 +120,7 @@ public class SistemaRiego : MonoBehaviour
 
         // Invierte el estado: si estaba regando pasa a no regar, y viceversa.
         regando = !regando;
+        RegistroDescubrimientos.Descubrir("riegoVivero");
 
         // Si ahora está regando, arranca las partículas; si no, las detiene (las que ya salieron terminan su recorrido).
         if (regando) agua.Play();

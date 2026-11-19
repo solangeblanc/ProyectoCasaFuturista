@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Bienvenida_TV.cs" />
     <Compile Include="Assets\3_Scripts\CamaraVigila.cs" />
+    <Compile Include="Assets\3_Scripts\Descubrimientos\DescubrirAlInteractuar.cs" />
     <Compile Include="Assets\3_Scripts\ClimaExterior.cs" />
     <Compile Include="Assets\3_Scripts\MVC\NoUSadoPlayerController.cs" />
     <Compile Include="Assets\3_Scripts\ControlMusicaBoton.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Assets\3_Scripts\MovimientoNPC.cs" />
     <Compile Include="Assets\3_Scripts\MVC\PlayerControl.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\PlayerCamera.cs" />
+    <Compile Include="Assets\3_Scripts\Descubrimientos\PanelDescubrimientos.cs" />
     <Compile Include="Assets\3_Scripts\MVC\PlayerView.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\3_Scripts\ControlBienvenida.cs" />
@@ -70,15 +72,19 @@
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\SelectorDeVentanas.cs" />
     <Compile Include="Assets\3_Scripts\MusicaSimulador.cs" />
     <Compile Include="Assets\3_Scripts\HeadBobbing.cs" />
+    <Compile Include="Assets\3_Scripts\Descubrimientos\RegistroDescubrimientos.cs" />
     <Compile Include="Assets\3_Scripts\CambioColorLuz.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\CreatureMover.cs" />
     <Compile Include="Assets\3_Scripts\RiegoControlJardin.cs" />
+    <Compile Include="Assets\NewMonoBehaviourScript.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\3_Scripts\LucesInterruptor.cs" />
+    <Compile Include="Assets\3_Scripts\Descubrimientos\MarcadorDescubrimiento.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Menu_Tele.cs" />
     <Compile Include="Assets\3_Scripts\ZonaClima.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\selectorDePared.cs" />
+    <Compile Include="Assets\3_Scripts\Descubrimientos\MarcarDescubrimientoAlMostrarse.cs" />
     <Compile Include="Assets\3_Scripts\FocusZoom.cs" />
     <Compile Include="Assets\3_Scripts\MVC\PlayerModel.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz inicio\Interfaz_Bienvenida.cs" />

@@ -56,6 +56,8 @@ public class AbrirTele : MonoBehaviour
         if (jugadorCerca && Input.GetKeyDown(tecla))
         {
             menuPrincipal.SetActive(true);
+            // Avisa al registro de descubrimientos que el jugador usó la TV.
+            RegistroDescubrimientos.Descubrir("tv");
             panelParedes.SetActive(false);
             panelPisos.SetActive(false);
             panelVentanas.SetActive(false);
