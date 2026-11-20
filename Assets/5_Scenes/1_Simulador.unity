@@ -602,9 +602,9 @@ MonoBehaviour:
   balanceFrio: -40
   balanceNeutro: 0
   balanceCalido: 40
-  filtroFrio: {r: 0.7, g: 0.85, b: 1, a: 1}
+  filtroFrio: {r: 0.61960787, g: 0.85, b: 1, a: 0.67058825}
   filtroNeutro: {r: 1, g: 1, b: 1, a: 1}
-  filtroCalido: {r: 1, g: 0.82, b: 0.6, a: 1}
+  filtroCalido: {r: 1, g: 0.82, b: 0.6, a: 0.58431375}
   saturacionFria: -15
   saturacionNeutra: 0
   saturacionCalida: 15
@@ -7789,6 +7789,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 0}
+  volumenSonido: 1
 --- !u!65 &122608823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11071,6 +11073,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!65 &230845713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13088,7 +13092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 4d83032306b73f84bbda1439e9797574, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1184
+      value: 3.21
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 4d83032306b73f84bbda1439e9797574, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13096,7 +13100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 4d83032306b73f84bbda1439e9797574, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.073
+      value: 0.32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22170,7 +22174,11 @@ PrefabInstance:
     - target: {fileID: -4683669308469848369, guid: 527a5eb873963ae4fbc63e2405721380, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -7533786500599473422, guid: a760177fbc3b0834fac7f9fe9cdc3db5, type: 3}
+      objectReference: {fileID: 2100000, guid: 605b2918e970fdd49a89e55a4a1a80e7, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 527a5eb873963ae4fbc63e2405721380, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 605b2918e970fdd49a89e55a4a1a80e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 527a5eb873963ae4fbc63e2405721380, type: 3}
       propertyPath: m_Name
       value: pileta
@@ -22406,6 +22414,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!65 &384222815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37467,6 +37477,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!1 &896943686
 GameObject:
   m_ObjectHideFlags: 0
@@ -39435,6 +39447,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!65 &966147878
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43327,6 +43341,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!65 &1136879825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43713,6 +43729,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!65 &1145421472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45077,6 +45095,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!1 &1211292589
 GameObject:
   m_ObjectHideFlags: 0
@@ -49274,6 +49294,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!65 &1323962232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55698,6 +55720,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!4 &1555669283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ae32705c19f9bf41a185e0330fe7a6d, type: 3}
@@ -57240,6 +57264,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!1 &1627287231
 GameObject:
   m_ObjectHideFlags: 0
@@ -57901,6 +57927,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!1 &1652268173
 GameObject:
   m_ObjectHideFlags: 0
@@ -60921,6 +60949,8 @@ MonoBehaviour:
   textoInteraccion: {fileID: 120948423}
   tecla: 32
   empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 8300000, guid: 59894a6895c582742bd5ffafcd544647, type: 3}
+  volumenSonido: 1
 --- !u!65 &1762349345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62154,6 +62184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
+  empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 0}
+  volumenSonido: 1
 --- !u!1 &1825728188
 GameObject:
   m_ObjectHideFlags: 0
@@ -65118,6 +65154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
+  empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 0}
+  volumenSonido: 1
 --- !u!1 &1946015165 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 3354d61de77cbf24f840ab2f0d7c74f4, type: 3}
@@ -70567,6 +70609,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f183878b853fe4ba68e372827ada0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterruptorLuz
+  luces: []
+  textoInteraccion: {fileID: 0}
+  tecla: 32
+  empiezanEncendidas: 0
+  sonidoInterruptor: {fileID: 0}
+  volumenSonido: 1
 --- !u!1001 &2099286392
 PrefabInstance:
   m_ObjectHideFlags: 0

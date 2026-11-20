@@ -18,8 +18,18 @@ public class InterruptorLuz : MonoBehaviour
     // Por defecto está sin tildar, así que todas las luces empiezan apagadas.
     public bool empiezanEncendidas = false;
 
+    // NUEVO (sonido): archivo de audio que suena cada vez que se aprieta el interruptor.
+    // Se arrastra desde la carpeta de Assets al Inspector.
+    public AudioClip sonidoInterruptor;
+    // NUEVO (sonido): volumen del sonido, de 0 (silencio) a 1 (máximo).
+    [Range(0f, 1f)]
+    public float volumenSonido = 1f;
+
     // Recuerda si el jugador está dentro de la zona del interruptor en este momento.
     private bool jugadorCerca = false;
+
+    // NUEVO (sonido): componente que reproduce el sonido.
+    private AudioSource audioInterruptor;
 
     // NUEVO: Start se ejecuta una sola vez, antes del primer frame (antes de que se dibuje nada).
     void Start()
@@ -32,6 +42,12 @@ public class InterruptorLuz : MonoBehaviour
             // y todas las luces del interruptor quedan sincronizadas.
             luz.SetActive(empiezanEncendidas);
         }
+
+        // NUEVO (sonido): busca un AudioSource en este objeto; si no tiene, le agrega uno.
+        audioInterruptor = GetComponent<AudioSource>();
+        if (audioInterruptor == null) audioInterruptor = gameObject.AddComponent<AudioSource>();
+        // NUEVO (sonido): que no suene solo al iniciar la escena.
+        audioInterruptor.playOnAwake = false;
     }
 
     // Update se ejecuta en cada frame mientras el juego corre.
@@ -49,6 +65,10 @@ public class InterruptorLuz : MonoBehaviour
                 // Invierte el estado de cada luz: si estaba encendida (activa) la apaga, y viceversa.
                 luz.SetActive(!luz.activeSelf);
             }
+
+            // NUEVO (sonido): reproduce el sonido del interruptor una vez (si hay un clip asignado).
+            if (sonidoInterruptor != null)
+                audioInterruptor.PlayOneShot(sonidoInterruptor, volumenSonido);
 
             // Avisa al registro de descubrimientos que el jugador usó las luces.
             RegistroDescubrimientos.Descubrir("luces");
