@@ -1,0 +1,645 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8121441355396614035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9091486236375178491}
+  m_Layer: 0
+  m_Name: Morron verdura
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9091486236375178491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121441355396614035}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0042297067, y: 0.0170424, z: 0.009414551, w: 0.9998015}
+  m_LocalPosition: {x: -69.99373, y: 11.047247, z: 57.439022}
+  m_LocalScale: {x: 0.6679722, y: 0.6303887, z: 0.5582187}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2078184379423703415}
+  - {fileID: 3434382641637816140}
+  - {fileID: 1102588045540031912}
+  - {fileID: 1976782804592376441}
+  - {fileID: 879341157743050687}
+  - {fileID: 8685927780892607586}
+  - {fileID: 8291544166268734292}
+  - {fileID: 1909926508979549855}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &632637555157506627
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.787155
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.22042
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.712067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.0410404
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -59.81427
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.58628124
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.115924634
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.78654224
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.15552208
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -22.369
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 106.599
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &1102588045540031912 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 632637555157506627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &846313215743416404
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.78717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.22042
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.822067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.571039
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -62.474274
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5928673
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.10104239
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7953781
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.07531603
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 106.599
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -14.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &879341157743050687 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 846313215743416404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1971882655166080668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.787155
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.22042
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.502075
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4510403
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -61.754272
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.58628124
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.115924634
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.78654224
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.15552208
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -22.369
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 106.599
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &2078184379423703415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 1971882655166080668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2081868100095532434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.78717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.22042
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.202072
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.35104
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -64.62427
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5928673
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.10104239
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7953781
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.07531603
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 106.599
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -14.48
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a414aeb9deca4c4caf904507bde0408, type: 2}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &1976782804592376441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 2081868100095532434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2093001159264342388
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.78717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.220417
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.952072
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5010395
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -59.904297
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6835718
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.05720696
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.72731775
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.021584513
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 6.293
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 93.722
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &1909926508979549855 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 2093001159264342388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2892394720593154215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.78717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.220417
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.322067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.5110397
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -59.714294
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.60521126
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.26436532
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7497988
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.040400572
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -22.37
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 106.599
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -22.075
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -5412891868347863643, guid: a760177fbc3b0834fac7f9fe9cdc3db5, type: 3}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &3434382641637816140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 2892394720593154215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8402522836712058047
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.78717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.220417
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.12207
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6510391
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -62.714294
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6835718
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.05720696
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.72731775
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.021584513
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 6.293
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 93.722
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &8291544166268734292 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 8402522836712058047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9151354259486303113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9091486236375178491}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -67.36507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 85.78716
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 61.22042
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.442062
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4710388
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -64.164276
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5976321
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.8017705
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 106.599
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 197826fc327544648b6b0a36aa1c4ba3, type: 2}
+    - target: {fileID: 919132149155446097, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+      propertyPath: m_Name
+      value: morronCocinaCajon (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+--- !u!4 &8685927780892607586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: efe741ae036c5fb4d8995e0a7f8d4105, type: 3}
+  m_PrefabInstance: {fileID: 9151354259486303113}
+  m_PrefabAsset: {fileID: 0}

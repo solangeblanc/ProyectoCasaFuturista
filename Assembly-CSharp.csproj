@@ -75,8 +75,8 @@
     <Compile Include="Assets\3_Scripts\HeadBobbing.cs" />
     <Compile Include="Assets\3_Scripts\Descubrimientos\RegistroDescubrimientos.cs" />
     <Compile Include="Assets\3_Scripts\CambioColorLuz.cs" />
+    <Compile Include="Assets\3_Scripts\AguaAnimada.cs" />
     <Compile Include="Assets\ithappy\PerroAnimacion\Scripts\CreatureMover.cs" />
-    <Compile Include="Assets\3_Scripts\RanaSaltarina.cs" />
     <Compile Include="Assets\3_Scripts\RiegoControlJardin.cs" />
     <Compile Include="Assets\NewMonoBehaviourScript.cs" />
     <Compile Include="Assets\3_Scripts\Teletransporte.cs" />
@@ -93,6 +93,7 @@
     <Compile Include="Assets\3_Scripts\ClimatizacionHabitacion.cs" />
     <Compile Include="Assets\3_Scripts\Scripts jardin\PerroRecorrido.cs" />
     <Compile Include="Assets\3_Scripts\Scripts pantalla tv\Abrir_Tele.cs" />
+    <Compile Include="Assets\3_Scripts\RanaSalto.cs" />
     <Compile Include="Assets\3_Scripts\Interfaz inicio\interfazcreditos.cs" />
     <Compile Include="Assets\3_Scripts\PuertaCorredizaBaño.cs" />
     <Compile Include="Assets\3_Scripts\SistemaRiego.cs" />
@@ -705,6 +706,14 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@9c2353fb96f6\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.5f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
