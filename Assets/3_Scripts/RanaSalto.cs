@@ -56,7 +56,6 @@ public class RanaSalto : MonoBehaviour
     private Vector3 finSalto;
     private float progreso;
     private float temporizador;
-    private bool avisoPrimerSalto;
 
     private void Start()
     {
@@ -84,13 +83,6 @@ public class RanaSalto : MonoBehaviour
             if (r != null) { limites = r.bounds; hayLimites = true; }
             else if (c != null) { limites = c.bounds; hayLimites = true; }
         }
-        if (!hayLimites)
-            Debug.LogWarning("RanaSalto: no hay agua asignada (o no tiene Renderer/Collider). " +
-                             "Salta en un círculo alrededor de donde está. Arrastrá el agua en 'Agua'.", this);
-
-        Debug.Log("RanaSalto: lista. Escala = " + escala + ", cada salto avanza " + distanciaReal +
-                  " unidades. Zona del agua encontrada = " + hayLimites + ".", this);
-
         ElegirDestino();
         EmpezarDescanso();
     }
@@ -158,12 +150,6 @@ public class RanaSalto : MonoBehaviour
         progreso = 0f;
         fase = Fase.Saltando;
         Animar(true);
-
-        if (!avisoPrimerSalto)
-        {
-            avisoPrimerSalto = true;
-            Debug.Log("RanaSalto: primer salto. Si ves este mensaje pero la rana no se mueve, avisame.", this);
-        }
     }
 
     // Elige un punto al azar dentro del agua (o dentro del círculo si no hay agua asignada).
